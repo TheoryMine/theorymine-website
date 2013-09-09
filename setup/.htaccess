@@ -1,0 +1,2 @@
+# this directory should not be visable by apache
+deny from all

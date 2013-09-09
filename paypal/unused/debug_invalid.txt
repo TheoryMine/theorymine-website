@@ -1,0 +1,12 @@
+HTTP/1.1 200 OK
+Date: Sat, 13 Jun 2009 21:48:58 GMT
+Server: Apache/1.3.33 (Unix) mod_fastcgi/2.4.2 mod_gzip/1.3.26.1a mod_ssl/2.8.22 OpenSSL/0.9.7e
+Set-Cookie: c9MWDuvPtT9GIMyPc3jwol1VSlO=60KC-Ox0smhjXYk38RvNcYCC1W85OTfvb3GR-OjgV--uZRVqv-boXNpZmzsPh-Zr_If7ETn-FVSInHZolm5_O9jVmy-OiSQRVyl1LAW7HlZIeb8tKW9BK4ljPxAW98x-oYsg9G%7ci10UX7FcR0FizEZsU4L2aFmbm-jjF7HlvHDeglhMnoxppYAEdF8z52V2sWlDpmeeRYzX10%7cP_vU6E15wOE2wLlQh96aRXu1uiaBA-LLwR-rDbAUGBMquOVXFRinNyfO_aTSjJFHGnmdp0%7c1244929739; domain=.paypal.com; path=/
+Set-Cookie: cookie_check=yes; expires=Tue, 11-Jun-2019 21:48:59 GMT; domain=.paypal.com; path=/
+Set-Cookie: navcmd=_notify-validate; domain=.paypal.com; path=/
+Set-Cookie: navlns=0; expires=Fri, 08-Jun-2029 21:48:59 GMT; domain=.paypal.com; path=/
+Set-Cookie: Apache=10.191.196.11.171431244929738786; path=/; expires=Fri, 01-May-03 15:20:42 GMT
+Connection: close
+Content-Type: text/html; charset=UTF-8
+
+INVALID

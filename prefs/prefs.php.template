@@ -1,0 +1,14 @@
+<? print("<" . "?"); ?>
+// This is the template file that generates a php file that holds 
+// the global preferences
+
+// .php file for global preferences for the argument mapping software
+// "safe_sql_dir" is a directory which is not world-readable or
+// web-readable, so that your database password can be stored there
+// safely, but still accessed by php.
+// "admin_pass" is the hashed admin password.
+
+$safe_sql_dir = "<? print $safe_sql_dir; ?>";
+$admin_email = "<? print $admin_email; ?>";
+$admin_pass = "<? print $admin_pass; ?>";
+<? print("?" . ">"); ?> 

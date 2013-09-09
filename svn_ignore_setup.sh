@@ -1,0 +1,1 @@
+svn propedit svn:ignore . -F svn_ignore.txt

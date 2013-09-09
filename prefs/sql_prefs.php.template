@@ -1,0 +1,32 @@
+<? print("<" . "?"); ?>
+// This is the template file that generates an php file that sets 
+// global SQL preferences; should be saved in 
+// "A_NON_WEB_SAFE_DIR/sql_prefs.php"
+
+// The kind of database you are using, "psql" for a postgres 
+// database and "mysql" for a mysql database. 
+
+$db_type = "<? print $db_type; ?>";
+
+// How to connect to the database, "localhost" for running it locally.
+// Otherwise this is your database server. Use "address:port" to specify 
+// a specific port to access the database. 
+
+$db_server = "<? print $db_server; ?>";
+
+// How to connect to your database server
+
+$db_user = "<? print $db_user; ?>";
+$db_pass = "<? print $db_pass; ?>";
+
+// the database name that will be used within your server,
+// usually this is set by your system admin.   
+
+$db = "<? print $db; ?>";
+
+// A unique table prefix to make sure argument map tables 
+// are distinct from other database tables that might be being used. 
+
+$db_tables_prefix = "<? print $db_tables_prefix; ?>";
+
+<? print("?" . ">"); ?> 

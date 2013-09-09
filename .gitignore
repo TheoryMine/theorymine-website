@@ -1,0 +1,15 @@
+.svn
+*~
+.DS_Store
+prefs/prefs.php
+prefs/sql_prefs.php
+error_log
+prefs/log.txt
+*.aux
+*.log
+*.zip
+*.gz
+*\#
+*.cb
+*.cb2
+*.gz(busy)

@@ -1,0 +1,11 @@
+Deletion:
+
+On deletion of a point, all relations of pro/con subpoints are deleted as well
+but the arguments themselves still exist. This should be refined as all links
+to access/find these arguments might dissapear as well, leaving zombie points.
+
+1) Delete all arguments that have no in/out relations anymore
+or
+2) Interactively do this with a user to re-establish certain links
+(probably unfeasable)
+

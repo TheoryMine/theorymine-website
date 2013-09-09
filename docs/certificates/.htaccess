@@ -1,0 +1,4 @@
+# don't show any files in a directory listing.  
+IndexIgnore *
+# this directory should not be visable by apache
+# deny from all

@@ -1,0 +1,36 @@
+.theorem-view {
+  margin: 1em;
+  font-family:"Times New Roman", Times, serif;
+  font-size: 14pt; 
+  
+}
+
+.theorem-name-title {
+  font-weight: bold; 
+  
+}
+
+.theorem-statement{
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  padding-left: 1em;
+  font-weight: bold; 
+}
+
+.theorem-theory{
+  padding-left: 1em;
+}
+
+.theorem-theory table {
+  width: 100%;
+}
+
+.theorem-proof{
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+
+.theorem-you-can-report-abuse {
+  margin: 1em;
+  font : 10pt Arial; 
+}

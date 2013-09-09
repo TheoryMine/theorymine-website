@@ -1,0 +1,8 @@
+*~
+.DS_Store
+prefs/prefs.php
+prefs/sql_prefs.php
+error_log
+prefs/log.txt
+*.aux
+*.log

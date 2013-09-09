@@ -1,0 +1,21 @@
+div.footer{
+  padding: 5px;
+  margin-top: 1em;
+  margin-left: 1em;
+  border-top: 2px solid #b4975a; 
+	text-align: left;
+	font-size: 10pt;
+}
+
+div.footer a:hover { text-decoration: underline;}
+
+div.footer-links {
+}
+
+div.social-media-links {
+    float:right;
+    margin-top:1em;
+    width:500px;
+    text-align: right;
+}
+

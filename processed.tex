@@ -1,0 +1,90 @@
+\documentclass[a4paper]{article}
+\usepackage[paper=a4paper, top=2cm, bottom=1.4cm, left=1.3cm, right=1.3cm]{geometry}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{fix-cm}
+\usepackage{euler}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{eso-pic}
+\usepackage{helvet}
+\usepackage{url}
+
+% sets the background
+\newcommand\BackgroundPic{
+\put(-5,0){
+\parbox[b][\paperheight]{\paperwidth}{%
+\vfill
+\centering
+\includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]{images/background3.jpg}
+\vfill
+}}}
+
+\newcommand{\nat}{\mathbb{N}}
+\newcommand{\bool}{\text{Bool}}
+
+\linespread{3} % sets the space between lines to be correct when selectfont command is used
+
+\begin{document}
+\pagestyle{empty}
+\AddToShipoutPicture*{\BackgroundPic}
+
+\begin{center}
+
+\fontsize{43}{0}\selectfont
+\emph{\textbf{\textit{TheoryMine}}}\\
+\vspace{0.2cm}
+\fontsize{15}{5}\selectfont
+CERTIFICATE OF REGISTRY\\
+\vspace{2cm}
+\fontsize{25}{5}\selectfont
+{\textbf{Flami's Cool T2}}\\
+\vspace{2cm}
+\fontsize{18}{5}\selectfont
+Let\\
+\vspace{0.65cm}
+
+
+\begin{eqnarray*}
+T<sub>1</sub> = C<sub>a</sub>(Bool, Bool)  | C<sub>b</sub>(T<sub>1</sub>) \\
+f<sub>&#945;</sub> : T<sub>1</sub> × T<sub>1</sub> &#8594; T<sub>1</sub>
+\\
+f<sub>&#946;</sub> : T<sub>1</sub> × T<sub>1</sub> &#8594; T<sub>1</sub>
+\\
+f<sub>&#945;</sub>(C<sub>a</sub>(x, y), z)=z
+\\
+f<sub>&#945;</sub>(C<sub>b</sub>(x), y) =C<sub>b</sub>(f<sub>&#945;</sub>(x, y)) \\
+f<sub>&#946;</sub> (C<sub>a</sub>(x, y), z) =C<sub>a</sub>(x, y) \\
+f<sub>&#946;</sub> (C<sub>b</sub>(x), y) = f<sub>&#945;</sub>(y, f<sub>&#946;</sub>(x, y))</td>
+\end{eqnarray*}
+
+\vspace{0.3cm}
+then
+
+\fontsize{20}{5}\selectfont
+\begin{eqnarray*}
+f<sub>&alpha;</sub>(f<sub>&beta;</sub>(x, C<sub>a</sub>(y, z)), x) = x 
+\end{eqnarray*}
+
+\vspace{0.5cm}
+\fontsize{15}{5}\selectfont
+Proof outline:Array
+% $\square$
+\end{center}
+
+\vfill
+\fontsize{12}{5}\selectfont
+\noindent \textsc{\hspace{4.3cm}THIS THEOREM HAS BEEN NAMED AND RECORDED}
+
+\noindent \textsc{\hspace{4.3cm}IN THE THEORYMINE DATABASE}
+
+\vspace{1.3cm}
+
+\fontsize{10}{5}\selectfont
+
+\noindent \hspace{1cm} 17 Jan 2011
+
+\noindent \hspace{0.1cm} \noindent \url{www.theorymine.co.uk}
+
+\end{document}

@@ -1,0 +1,75 @@
+Setting up the Argument Mapper
+(on Ubuntu Linux)
+
+1. Download/setup apache and mysql:
+
+From a terminal type:
+--- 
+sudo tasksel install lamp-server
+--- 
+(enter passwords, config, etc as appropriate/default)
+
+More details at: 
+http://help.ubuntu.com/community/ApacheMySQLPHP
+
+This installed the so called "LAMP" (Linux-Apache-MySQL-PHP) server
+in Ubuntu
+
+
+2. Download the argument mapper software:
+
+From your preferred directory in which you want the argument mapper
+software to live, typing in a terminal:
+--- 
+svn co https://kenyersel.svn.sourceforge.net/svnroot/kenyersel/ kenyersel
+--- 
+
+This will create a directory called "kenyersel". Inside this you will
+find the "trunk" directory in which the latest version of the argument
+mapper software is held, currently "argmaps2", i.e. the directory of
+interest is:
+--- 
+kenyersel/trunk/argmaps2
+--- 
+
+3. Setup the SQL databases:
+
+From a terminal, first login the to database server and create a
+database for kenyersel:
+
+1. Login to mysql program:
+--- 
+mysql -u root -p -h localhost
+--- 
+
+You will probably be asked your password. 
+
+2. create the database "kenyersel" by typing the following at the
+   "mysql>" prompt: 
+--- 
+CREATE DATABASE kenyersel;
+--- 
+
+3. create a special user to accessing the database locally from your
+   webserver, by typing (I suggest you do it line-by-line): 
+--- 
+CREATE USER kys;
+SET PASSWORD FOR 'kys'@'localhost' = PASSWORD('**PASSWORD**');
+GRANT ALL ON kenyersel.* TO 'kys'@'localhost';
+quit;
+---
+
+Make up a password for the SQL user "kys", and replace **PASSWORD**
+above by your password. It doesn't matter too much if you are the only
+user of your machine. 
+
+4. Make a symbolic link of to the argument mapper directory in your
+   apache webspace, for example: 
+---
+ln -s kenyersel/trunk/anon /var/www/anon
+---
+
+Note that /var/www corresponds to your web-server. So, you can view
+the argument maps by directing your browser to: 
+http://localhost/argmaps2
+

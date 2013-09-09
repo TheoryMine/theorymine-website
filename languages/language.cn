@@ -1,0 +1,11 @@
+
+
+<?php
+$lang = array (
+  'txt_charset'                 => 'utf-8',
+  'txt_lang'                     => 'Çå¿ÕÏûÏ¢',
+  'txt_first_name'              => 'Nome',
+  'txt_last_name'               => 'Cognome',
+  'txt_phone_number'            => 'Numero'
+);
+?>

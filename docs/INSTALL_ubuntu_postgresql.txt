@@ -1,0 +1,87 @@
+Setting up the Argument Mapper
+(on Ubuntu Linux)
+
+1. Download/setup apache and postgresql:
+
+From a terminal type:
+---
+sudo tasksel install lamp-server 
+sudo apt-get install postgresql
+sudo apt-get install php5 libapache2-mod-php5
+sudo apt-get install php5-pgsql
+---
+(enter passwords, config, etc as appropriate/default)
+
+More details at: 
+http://help.ubuntu.com/community/ApacheMySQLPHP
+
+This installs the so called "LAMP" (Linux-Apache-MySQL-PHP) server
+in Ubuntu, as well as the postgres SQL stff you need and appropriate php libraries. 
+
+
+2. Download the this software (you've probably already done this if you are reading this):
+
+From your preferred directory in which you want the argument mapper
+software to live, typing in a terminal:
+--- 
+svn co https://kenyersel.svn.sourceforge.net/svnroot/kenyersel/trunk/anon anon
+--- 
+
+This will create a directory called "anon". 
+
+
+3. Initialise superuser password for Postgres: 
+
+if this is the first time you've setup postgres, you need to set the
+super-user. Login to porgres as superuser from a shell with:
+
+--- 
+sudo -u postgres psql postgres
+--- 
+
+(You will probably be asked your super-user/root password)
+
+3.2 change the postgres password to something secure by typing (at the
+  prompt "postgres=# "):
+---
+ALTER USER postgres WITH ENCRYPTED PASSWORD '***A SAFE PASSWORD***';
+\q
+---
+
+
+4. Make the SQL User and Database:
+
+4.1. create a database user for accessing the database (replace
+USERNAME with your created user name). This should be the same
+username as your unix username in order to access your DB directly
+with psql:
+
+--- 
+sudo -u postgres createuser -P -S -D -A -R USERNAME
+sudo -u postgres dropuser -P -S -D -A -R USERNAME
+---
+
+and set the password for USERNAME when asked. It is the -P flag lets
+you make up a new password for the SQL user. The password does not
+matter too much if you are the only user of your machine.
+
+4.2. create the database "kenyersel" which is owned by the user
+   USERNAME, by typing the following in a terminal:
+
+--- 
+sudo -u postgres createdb -O USERNAME kenyersel 
+sudo -u postgres dropdb kenyersel 
+---
+
+
+5. Make a symbolic link of to the argument mapper directory in your
+   apache webspace, for example: 
+---
+ln -s kenyersel/trunk/anon /var/www/anon
+---
+
+Note that /var/www corresponds to your web-server. So, you can view
+the argument maps by directing your browser to: 
+http://localhost/argmaps2
+
+6. Goto the webpages and finish the setup...
