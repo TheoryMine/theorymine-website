@@ -26,6 +26,12 @@ else {
     <li style= "line-height: 40px;">
     <a href="?go=theorem&pid=<? print $row['id']; ?>"><? print htmlentities($row['title']); ?>
     </a><span class="date"> [<? print sqltimestamp_to_str($row['time_stamp']); ?>]</span> 
+    <?
+      $ord_id = $row['id'];
+      $facebook_link = "http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.theorymine.co.uk%2F%3Fgo%3Dcert_image%26pid%3D".$ord_id ."&amp;send=false&amp;layout=button_count&amp;width=50&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21";
+      ?>
+      <iframe src=<?print $facebook_link?> scrolling="no" frameborder="0"
+      style="border:none; overflow:hidden; width:100px; height:21px; padding-left:  30px;" allowTransparency="true"></iframe>
     </li><?
     
       }

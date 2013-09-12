@@ -130,8 +130,8 @@ if(!isset($_SESSION['id'])) {
 </center>
 </td>
 
-<td style=" border: 2px solid #d7d7d7;background-color: #f3efe5; width: 25%; padding: 5px; vertical-align: top;">
-<font class="gold">Latest named Theorems:</font>
+<td style=" border: 2px solid #d7d7d7;background-color: #f3efe5; width: 25%; padding: 3px; vertical-align: top;">
+<font class="gold">Selected Recent Theorems:</font>
 <p class="small">
 
 </p>
@@ -149,10 +149,18 @@ else {
       <li>
       <a href="?go=theorem&pid=<? print $row['id']; ?>"><? print htmlentities($row['title']); ?>
       </a><span class="date"> [<? print sqltimestamp_to_str($row['time_stamp']); ?>]</span> 
+      <?
+      $ord_id = $row['id'];
+      $facebook_link = "http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.theorymine.co.uk%2F%3Fgo%3Dcert_image%26pid%3D".$ord_id ."&amp;send=false&amp;layout=button_count&amp;width=50&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21";
+      ?>
+      <iframe src=<?print $facebook_link?> scrolling="no" frameborder="0" align="right" style="border:none; overflow:hidden; width:100px; height:21px; " allowTransparency="true"></iframe>
+       
     </li><?
     }?>
     </ul>
     
+   
+        
   <div class="more-theorems"><?
   
    if ($viewed_theorems  >=  $this_limit){

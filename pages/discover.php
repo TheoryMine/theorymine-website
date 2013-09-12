@@ -155,6 +155,8 @@ if(isset($_POST['check_voucher'])){ ?>
                     </select>
                     <br/>
                     <br/>
+                    Select a date of publication date:<? include("pages/common_parts/question-mark_date.php"); ?>
+                    <input type="date" name="bday">
                     <div style="width:60%; margin:0 20% 0 20%;">
                    <?//if ($thislang ['lang'] == 'cn'){
                      ?>

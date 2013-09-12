@@ -44,7 +44,7 @@
       
     
       
-      <iframe src=<?print $facebook_link?> scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:50px; height:21px;" allowTransparency="true"></iframe>
+      <iframe src=<?print $facebook_link?> scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:150px; height:21px;" allowTransparency="true"></iframe>
      
       </td>
       </tr>
