@@ -280,7 +280,8 @@ if($act == 'search') {
         $user = get_user_of_point($point);
 
         if($point['point_type'] == 'order.new.') {
-        ?><form action="?go=admin&s=orders" method="post">
+        ?>
+        <form action="?go=admin&s=orders" method="post">
         <input type="hidden" name="act" value="attach_thm">
         <input type="hidden" name="id" value="<? print($point['id']); ?>">
         <input class="greenbutton" type="submit" value="Attach a Theorem">
@@ -293,7 +294,17 @@ if($act == 'search') {
         */
         $cert =  get_point_related_from($point,"certificate.","has_certificate.");
 
-        ?><form action="?go=admin&s=orders" method="post">
+        ?>
+        <p><b>Order is in progress.</b>.</p>
+        <p>
+          <a href="?go=admin&s=certificate3&pid=<?
+            print ($cert['title']);
+            ?>">Upload files</a>
+            <br>
+          <a href="/certificates/<? print ($cert['title']); ?>/certificate.pdf">
+            View "certificate.pdf"</a>
+        </p>
+        <form action="?go=admin&s=orders" method="post">
 
         <input type="radio" name="lang_email" value="en"  checked /> English<br />
         <input type="radio" name="lang_email" value="cn" /> Chinese<br />
@@ -302,43 +313,25 @@ if($act == 'search') {
         <input type="hidden" name="act" value="send_thm">
         <input type="hidden" name="id" value="<? print($point['id']); ?>">
         <input class="greenbutton" type="submit" value="Send Theorem">
-        <a href="?go=certificate&pid=<?
-        // print ($point['id'].md5($point['title']));
-          print ($cert['title']);
-          ?>">
-          View Certificate</a>  |
-            <a href="?go=certificate_special&pid=<?
-         // print ($point['id'].md5($point['title']));
-          print ($cert['title']);
-          ?>">
-          Fresh Certificate</a> |
-          <a href="?go=admin&s=certificate3&pid=<?
-          print ($cert['title']);
-          ?>">
-          Make Images</a>
-
-
         </form>
         <?
       } else if(subtype($point['point_type'],'order.hasthm.')) {
         $cert =  get_point_related_from($point,"certificate.","has_certificate.");
         $thm=  get_point_related_from($point,"thm.named.","named.");
-        ?>Order is fully processed.<br/>
-        <a href="?go=certificate&pid=<? print (//$point['id'].md5($point['title']));
-        $cert['title']);
-        ?>"> View Certificate</a>  |
-            <a href="?go=certificate_special&pid=<?
-          //print ($point['id'].md5($point['title']));
-         print ($cert['title']);
-          ?>&fresh=yes">
-          Fresh Certificate</a>|
-        <a href="?go=admin&s=certificate3&pid=<?
-          print ($cert['title']);
-          ?>">
-          Make Images</a>
-          <br/><?
+        ?><p><b>Order is fully processed</b>.</p>
+        <p>
+          <a href="?go=admin&s=certificate3&pid=<?
+            print ($cert['title']);
+            ?>">Upload files</a>
+            <br>
+          <a href="/certificates/<? print ($cert['title']); ?>/certificate.pdf">
+            View "certificate.pdf"</a>
+        </p>
+        <br/><?
       }
-        ?>Order body (paypal txn id): <span class="simple-block"><? print $point['body']; ?></span><br>
+      ?>
+      <p>
+      Order body (paypal txn id): <span class="simple-block"><? print $point['body']; ?></span><br>
         ordered by user (<? print $user['id']; ?>)
         <? print $user['firstname']; ?> <? print $user['lastname']; ?>,
         <? print $user['email']; ?><br>
@@ -424,7 +417,6 @@ if($act == 'search') {
           'shipping_method',
           'tax',
           'transaction_entity');
-
           foreach($paypal_vars as $k) {
             print($k . ": " . $row[$k] . "<br />");
           }
