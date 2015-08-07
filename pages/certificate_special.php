@@ -3,32 +3,30 @@
 
 
 
-// TO DO: change pid to cert; note people have been sent the old URL! 
+// TO DO: change pid to cert; note people have been sent the old URL!
 $cert_id =sql_str_escape($_REQUEST['pid']);
 
 $order_point = get_from_point_related_to_title($cert_id,'order.','has_certificate.');
 if($order_point == null) {
-  include("pages/bad_cert_id.php"); 
+  include("pages/bad_cert_id.php");
   exit();
 } else {
   $name = $order_point['title'];
   $name = preg_replace('/[\s]+/', '_', $name);
   $name = preg_replace('/[^a-zA-Z0-9_]/', '', $name);
-  $pdf_file_dir = 'certificates/' . $cert_id; 
-  $pdf_file_loc = 
-  $pdf_file_dir . '/certificate.pdf';
- 
+  $pdf_file_dir = 'certificates/' . $cert_id;
+  $pdf_file_loc = $pdf_file_dir . '/certificate.pdf';
 }
 
 // if file doesn't exist, make dir
-if(!file_exists($pdf_file_loc) 
+if(!file_exists($pdf_file_loc)
    or ((file_exists($pdf_file_loc) and $_SESSION['userkind'] == 'admin'
-        and $_REQUEST['fresh'] == "yes" ))) 
+        and $_REQUEST['fresh'] == "yes" )))
 {
   if(is_dir($pdf_file_dir) or mkdir($pdf_file_dir)) { // if made directory successfully, make & save pdf
-    print "OPS - you are trying to look at a cerificate tha tdoesn't exist!";
+    print "OPS - you are trying to look at a cerificate that doesn't exist!";
   } else {
-    die_at_noted_problem("no dir and couldn't create the certificate dir"); 
+    die_at_noted_problem("no dir and couldn't create the certificate dir");
   }
 }
 
@@ -53,7 +51,7 @@ if(file_exists($pdf_file_loc)) {
   // use the Content-Disposition header to supply a recommended filename
   header('Content-Disposition: attachment; filename="'.basename($name).'";');
   header('Content-Transfer-Encoding: binary');
-  
+
   $handle = fopen($pdf_file_loc, "r");
   if($handle == null) {
     die_at_noted_problem("Couldn't open certificate");
@@ -64,6 +62,6 @@ if(file_exists($pdf_file_loc)) {
   header('Content-Length: '.strlen($contents));
   echo $contents;
 } else {
-  die_at_noted_problem("No such pdf"); 
+  die_at_noted_problem("No such pdf");
 }
 ?>
