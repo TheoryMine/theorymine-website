@@ -295,7 +295,31 @@ if($act == 'search') {
         $cert =  get_point_related_from($point,"certificate.","has_certificate.");
 
         ?>
-        <p><b>Order is in progress.</b>.</p>
+        <p><b>Order is in progress.</b></p>
+        <p>To generate the certificate, run: </p>
+        <pre>
+# Make the general directory for moving things inside and outside of Docker
+mkdir -p $HOME/tmp/outside-of-docker-theorymine
+
+# Start docker
+docker run -v \
+  $HOME/tmp/outside-of-docker-theorymine:/tmp/inside-of-docker-theorymine \
+  -t -i theorymine/theorymine-image /bin/bash
+
+# Assign the theorem ID, we'll re-use this
+export THEORYMINE_CERT_ID=<? print ($cert['title']); ?>
+
+# Change to the relevant directory for cert generation
+cd /usr/local/theorymine-website
+
+# Create the certificate.
+./run_certificate_generation.sh $THEORYMINE_CERT_ID
+
+# Move the generated data into the host environment (outside of docker)
+mv tmp_theorymine "/tmp/inside-of-docker-theorymine/tm-$THEORYMINE_CERT_ID"
+
+# Now upload the files using the link below.
+        </pre>
         <p>
           <a href="?go=admin&s=certificate3&pid=<?
             print ($cert['title']);
