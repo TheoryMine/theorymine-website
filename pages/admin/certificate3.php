@@ -26,8 +26,13 @@ if($order_point == null) {
 ?>
 
 <p>
-To create certificates run the <code>run_certificate_generation.sh <? print $cert_id ?></code> from a clone of
-the website repository.
+order point id: <? print $order_point['id']; ?><br>
+Order to name a theorem: "<? print $order_point['title']; ?>"<br>
+date: <?print $order_point['time_stamp']?><br>
+Order status: <? print $order_point['point_type']; ?><br>
+<br>
+Files to upload should be created by:<br>
+<code>run_certificate_generation.sh <? print $cert_id ?></code>
 </p>
 
 <p>
