@@ -4,17 +4,17 @@ set -e
 CID=$1
 
 if [ $1 ]
-then 
+then
 	echo "Creating certificates/latex/images for theorem certificate id: $1"
-else 
+else
 	echo "Please provide this command with certificate-id as the first argument."
 	echo "e.g. 4603cc0cdff7f33804335c762fb323da5234"
 	exit 1
-fi	
+fi
 
 CODE_LOCATION="$(cd "$(dirname $0)"; pwd)";
 echo "Running in: $CODE_LOCATION"
-TMP_LOCATION="${CODE_LOCATION}/tmp_theorymine"
+TMP_LOCATION="${CODE_LOCATION}/generated_certificates/$CID"
 mkdir -p ${TMP_LOCATION}
 cd ${TMP_LOCATION}
 LOGFILE="errorcheck.log"
