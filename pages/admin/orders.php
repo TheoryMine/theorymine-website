@@ -296,23 +296,13 @@ if($act == 'search') {
 
         ?>
         <p><b>Order is in progress.</b></p>
-        <p>To generate the certificate, run the following in
+        <p>To generate the certificate from the
         the <a href="https://github.com/TheoryMine/theorymine-docker">theorymine
-        docker environment</a>: </p>
-        <pre>
-cd /theorymine/theorymine-website
-
-# Assign the theorem ID
-export THEORYMINE_CERT_ID=<? print ($cert['title']); ?>
-
-# Create the certificate.
-./run_certificate_generation.sh $THEORYMINE_CERT_ID
-
-# Move the generated data into the host environment (outside of docker)
-mv "generated_certificates/$THEORYMINE_CERT_ID" /theorymine/docker_shared_dir/
-
-# Now you can upload the files using the link below...
-        </pre>
+        docker</a> directory run: </p>
+        <p><pre>
+        sh generate_certificate.sh <? print ($cert['title']); ?>
+        </pre></p>
+        <p>This will put the generated certificate files in the local <pre>docker_shared_dir</pre></p>
         <p>
           <a href="?go=admin&s=certificate3&pid=<?
             print ($cert['title']);

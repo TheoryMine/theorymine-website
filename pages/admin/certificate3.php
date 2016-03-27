@@ -31,8 +31,8 @@ Order to name a theorem: "<? print $order_point['title']; ?>"<br>
 date: <?print $order_point['time_stamp']?><br>
 Order status: <? print $order_point['point_type']; ?><br>
 <br>
-Files to upload should be created by:<br>
-<code>run_certificate_generation.sh <? print $cert_id ?></code>
+Files to upload should be created by (from theorymine-docker):<br>
+<code>sh generate_certificate.sh <? print $cert_id ?></code>
 </p>
 
 <p>
