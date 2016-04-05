@@ -7,7 +7,7 @@ include 'pages/common_parts/header.php';
 <h1>PRIVACY POLICY for www.theorymine.co.uk</h1>
 <p>
 At TheoryMine we are dedicated to safeguarding and preserving your privacy when visiting our site or communicating electronically with us. Our Privacy Policy has been provided and approved by internet law specialists LegalCentre.co.uk.
-This Privacy Policy, together with our terms of use, explains what happens to any personal data that you provide to us, or that we collect from you when you are on this site. 
+This Privacy Policy, together with our terms of use, explains what happens to any personal data that you provide to us, or that we collect from you when you are on this site.
 We do update this Policy from time to time so please do return and review this Policy regularly.
 
 </p>
@@ -21,30 +21,30 @@ In operating our website we may collect and process the following data about you
 </ol>
 </p>
 <h2>Use of Cookies </h2>
-We may on occasion gather information regarding your computer whilst you are on our website. This enables us to improve our services and to provide statistical information regarding the use of our website to our advertisers where appropriate. 
+We may on occasion gather information regarding your computer whilst you are on our website. This enables us to improve our services and to provide statistical information regarding the use of our website to our advertisers where appropriate.
 Such information will not identify you personally it is statistical data about our visitors and their use of our site. This statistical data does not identify any personal details whatsoever.
-Similarly to the above, we may gather information about your general internet use by using a cookie file.  Where used, these cookies are downloaded to your computer automatically. This cookie file is stored on the hard drive of your computer as cookies contain information that is transferred to your computer's hard drive. They help us to improve our website and the service that we provide to you. 
-All computers have the ability to decline cookies.  This can be done by activating the setting on your browser which enables you to decline the cookies. Please note that should you choose to decline cookies, you may be unable to access particular parts of our website. 
+Similarly to the above, we may gather information about your general internet use by using a cookie file.  Where used, these cookies are downloaded to your computer automatically. This cookie file is stored on the hard drive of your computer as cookies contain information that is transferred to your computer's hard drive. They help us to improve our website and the service that we provide to you.
+All computers have the ability to decline cookies.  This can be done by activating the setting on your browser which enables you to decline the cookies. Please note that should you choose to decline cookies, you may be unable to access particular parts of our website.
 Our advertisers may also use cookies, over which we have no control.  Such cookies (if used) would be downloaded once you click on advertisements on our website.</p>
 <h2>Use of Your Information</h2>
 <p>The information that we collect and store relating to you is primarily used to enable us to provide our services to you.  In addition, we may use the information for the following purposes:
 <ol>
-<li>To provide you with information requested from us, relating to our products or services.  To provide information on other products which we feel may be of interest to you, where you have consented to receive such information.</li> 
+<li>To provide you with information requested from us, relating to our products or services.  To provide information on other products which we feel may be of interest to you, where you have consented to receive such information.</li>
 <li>To meet our contractual commitments to you.</li>
 <li>To notify you about any changes to our website, such as improvements or service/product changes, that may affect our service.</li>
 </ol>
-If you are an existing customer, we may contact you with information about goods and services similar to those which were the subject of a previous sale to you. 
+If you are an existing customer, we may contact you with information about goods and services similar to those which were the subject of a previous sale to you.
 Further, we may use your data, or permit selected third parties to use your data, so that you can be provided with information about unrelated goods and services which we consider may be of interest to you.  We or they may contact you about these goods and services by any of the methods that you consented at the time your information was collected.
-If you are a new customer, we will only contact you or allow third parties to contact you only when you have provided consent and only by those means you provided consent for. 
+If you are a new customer, we will only contact you or allow third parties to contact you only when you have provided consent and only by those means you provided consent for.
 If you do not want us to use your data for our or third parties you will have the opportunity to withhold your consent to this when you provide your details to us on the form on which we collect your data.
 Please be advised that we do not reveal information about identifiable individuals to our advertisers but we may, on occasion, provide them with aggregate statistical information about our visitors.  </p>
 <h2>Storing Your Personal Data</h2>
 We may transfer data that we collect from you to locations outside of the European Economic Area for processing and storing. Also, it may be processed by staff operating outside the European Economic Area who work for us or for one of our suppliers. For example, such staff maybe engaged in the processing and concluding of your order, the processing of your payment details and the provision of support services. By submitting your personal data, you agree to this transfer, storing or processing. We will take all reasonable steps to make sure that your data is treated securely and in agreement with this Privacy Policy.
-Data that is provided to us is stored on our secure servers. Details relating to any transactions entered into on our site will be encrypted to ensure its safety. 
+Data that is provided to us is stored on our secure servers. Details relating to any transactions entered into on our site will be encrypted to ensure its safety.
 The transmission of information via the internet is not completely secure and therefore we cannot guarantee the security of data sent to us electronically and transmission of such data is therefore entirely at your own risk. Where we have given you (or where you have chosen) a password so that you can access certain parts of our site, you are responsible for keeping this password confidential.</p>
 <h2>Disclosing Your Information </h2>
 <p>Where applicable, we may disclose your personal information to any member of our group. This includes, where applicable, our subsidiaries, our holding company and its other subsidiaries (if any).
-We may also disclose your personal information to third parties: 
+We may also disclose your personal information to third parties:
 <ol>
 <li>Where we sell any or all of our business and/or our assets to a third party.</li>
 <li>Where we are legally required to disclose your information.</li>
@@ -56,30 +56,30 @@ We may also disclose your personal information to third parties:
 <h2>Access To Information</h2>
 <p>The Data Protection Act 1998 gives you the right to access the information that we hold about you. Please note that any demand for access may be subject to payment of a fee of &pound;10 which covers our costs in providing you with the information requested.  Should you wish to receive details that we hold about you please contact us using the contact details below.</p>
 <h2>Contacting Us</h2>
-<p>We welcome any queries, comments or requests you may have regarding this Privacy Policy.  Please do not hesitate to contact us at info@theorymine.co.uk </p>
+<p>We welcome any queries, comments or requests you may have regarding this Privacy Policy.  Please do not hesitate to contact us at support@theorymine.co.uk </p>
 -->
 
 
 
 
 <h1>
-Privacy and Cookie Policy: 
+Privacy and Cookie Policy:
 Theorymine Limited </h1>
 
 <ol>
 
-<li>Privacy and Cookie Policy 
+<li>Privacy and Cookie Policy
 
   <ol>
   <li>Theorymine Limited of 8 Melville Street, Edinburgh, Scotland, EH3 7NS (&#8220;we&#8221; or &#8220;us&#8221;) are committed to protecting and respecting your privacy.</li>
-  <li>This page (together with the documents referred to on it) provides the basis upon which any personal data that you submit to us will be processed by us.</li> 
+  <li>This page (together with the documents referred to on it) provides the basis upon which any personal data that you submit to us will be processed by us.</li>
   <li>Please read the following carefully to understand our views and practices regarding personal data and how we will treat it. </li>
   <li>By using the site http://www.theorymine.co.uk (&#8220;our site&#8221;), you accept this privacy and cookie policy (our &#8220;privacy and cookie policy&#8221;). If you do not agree with any term in this privacy and cookie policy, please do not use our site or submit any personal data through it. </li>
   <li>We are the data controller for the purpose of the Data Protection Act 1998 (the &#8220;Act&#8221;). </li>
   </ol>
 </li>
 
-<li> 
+<li>
   Information we may collect
   <ol>
     <li>
@@ -145,12 +145,12 @@ Uses made of the information
     <li>to allow you to participate in interactive features of our site, when you choose to do so;</li>
     <li>to notify you about changes to our site;</li>
     <li>to allow us to consider your comments, queries and suggestions and respond, if necessary;</li>
-    <li>to comply with any legal obligation;</li> 
+    <li>to comply with any legal obligation;</li>
     <li>to enable or facilitate the exercise of our rights under the terms and conditions relating to the use of our site; and</li>
     <li>to protect our rights, property, or safety, or others.</li>
     </ol>
   </li>
-  <li>We may also share the information that we collect (or procure the collection of) from or concerning you or which you submit to us with our business partners for marketing purposes or may send you information about other organisations&rsquo; goods or services.  We or our business partners may contact you by mail, telephone, fax, e-mail or other electronic messaging service with offers of goods and services that may be of interest to you.  By providing us with your fax number, telephone numbers or e-mail address, you consent to being contacted by these methods for these purposes. If you do not wish to receive marketing information from us or our business partners please email us at info@theorymine.co.uk or write to us at Theorymine Limited, 8 Melville Street, Edinburgh, EH3 &NS, United Kingdom.</li>
+  <li>We may also share the information that we collect (or procure the collection of) from or concerning you or which you submit to us with our business partners for marketing purposes or may send you information about other organisations&rsquo; goods or services.  We or our business partners may contact you by mail, telephone, fax, e-mail or other electronic messaging service with offers of goods and services that may be of interest to you.  By providing us with your fax number, telephone numbers or e-mail address, you consent to being contacted by these methods for these purposes. If you do not wish to receive marketing information from us or our business partners please email us at support@theorymine.co.uk or write to us at Theorymine Limited, 8 Melville Street, Edinburgh, EH3 &NS, United Kingdom.</li>
   <li>We may keep personal data we collect (or procure the collection of) from or concerning you or which you submit to us for a reasonable period for the aforementioned purposes.<li>
   </ol>
 </li>
@@ -158,7 +158,7 @@ Uses made of the information
   Disclosure of information
   <ol>
   <li>
-  We may disclose the information that we collect (or procure the collection of) from or concerning you or which you submit to us: 
+  We may disclose the information that we collect (or procure the collection of) from or concerning you or which you submit to us:
     <ol>
     <li>to enable the proper maintenance of our site;</li>
     <li>to enable the supply to you of products which you have requested;</li>
@@ -183,7 +183,7 @@ Third party personal data
 <li>
 Your rights
   <ol>
-  <li>You have the right to ask us not to process your personal data for marketing purposes.  We will inform you (before collecting your data) if we intend to use your data for such purposes or if we intend to disclose your information to any third party for such purposes.  You can exercise your right to prevent such processing by checking certain boxes on the forms we use to collect your data.  You can also exercise the right at any time by emailing us at info@theorymine.co.uk or write to us at Theorymine Limited, 8 Melville Street, Edinburgh, EH3 &NS, United Kingdom. </li>
+  <li>You have the right to ask us not to process your personal data for marketing purposes.  We will inform you (before collecting your data) if we intend to use your data for such purposes or if we intend to disclose your information to any third party for such purposes.  You can exercise your right to prevent such processing by checking certain boxes on the forms we use to collect your data.  You can also exercise the right at any time by emailing us at support@theorymine.co.uk or write to us at Theorymine Limited, 8 Melville Street, Edinburgh, EH3 &NS, United Kingdom. </li>
   <li>Our site may, from time to time, contain links to and from third party sites.  If you follow a link to any of these sites, please note that we are not responsible for the content or privacy policies of these sites nor for the way in which the personal data of their users is treated. Please check these policies before you submit any personal data to these sites.</li>
   </ol>
 </li>
@@ -203,7 +203,7 @@ Changes to our privacy and cookie policy
 <li>
 Contact
   <ol>
-  Questions, comments and requests regarding this privacy and cookie policy and how we use your personal data are welcomed and should be addressed to info@theorymine.co.uk or write to us at Theorymine Limited, 8 Melville Street, Edinburgh, EH3 7NS, United Kingdom. 
+  Questions, comments and requests regarding this privacy and cookie policy and how we use your personal data are welcomed and should be addressed to support@theorymine.co.uk or write to us at Theorymine Limited, 8 Melville Street, Edinburgh, EH3 7NS, United Kingdom.
   </ol>
 </li>
 </ol>

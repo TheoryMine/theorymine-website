@@ -42,7 +42,7 @@ if (!isset($_REQUEST['email_address'])) {
 
 // If the form fields are empty, redirect to the error page.
 elseif (empty($email_address) || empty($comments)) {
-//header( "Location: ?go=errorm" );   
+//header( "Location: ?go=errorm" );
 include 'pages/common_parts/header.php';
 ?>
 <h1>Oops!</h1>
@@ -56,7 +56,7 @@ elseif ( isInjected($email_address) ) {
   include 'pages/common_parts/header.php';
 ?>
 <h1>Oops!</h1>
-<p>Please ensure you have completed both fields before submitting the form. 
+<p>Please ensure you have completed both fields before submitting the form.
 Also ensure that there is only one email address.</p>
 <p><a href="JavaScript:history.go(-1);">Back</a></p>
 <?
@@ -66,7 +66,7 @@ Also ensure that there is only one email address.</p>
 
 // If we passed all previous tests, send the email!
 else {
-mail( "info@theorymine.co.uk", "Feedback Form Results",
+mail( "support@theorymine.co.uk", "Feedback Form Results",
   $comments, "From: $email_address" );
 //header( "Location: ?go=thankyou" );
 include 'pages/common_parts/header.php';
