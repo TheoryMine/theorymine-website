@@ -189,7 +189,7 @@ if(isset($_POST['check_voucher'])){ ?>
    
                  <input type="image" src="https://www.paypalobjects.com/en_US/GB/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal Ñ The safer, easier way to pay online."><img alt="" border="0" src="https://www.paypalobjects.com/en_GB/i/scr/pixel.gif" width="1" height="1">
     
-                <p style="font-size: 10pt; color:#CC0000;">(If you don't have a PayPal account, you can pay with your credit or debit card as a PayPal guess.)</p>
+                <p style="font-size: 10pt; color:#CC0000;">(If you don't have a PayPal account, you can pay with your credit or debit card as a PayPal guest.)</p>
                 <!--<input type="image" src="https://www.paypal.com/en_US/GB/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online.">
                 <img alt="" border="0" src="https://www.paypal.com/en_GB/i/scr/pixel.gif" width="1" height="1">-->
                 
