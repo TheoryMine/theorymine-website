@@ -184,7 +184,7 @@ if($msgs != null){
 ?>
 
 <h1>Orders</h1>
-  <form action="?go=admin&s=orders" method="post">
+  <form action="?go=admin&s=orders" method="get">
   <input type="hidden" name="act" value="search" size="70">
   <b>Search:</b> <input type="text" name="search" value="<? print $search; ?>" size="70"><br>
   Offset:
@@ -296,13 +296,15 @@ if($act == 'search') {
 
         ?>
         <p><b>Order is in progress.</b></p>
-        <p>To generate the certificate from the
-        the <a href="https://github.com/TheoryMine/theorymine-docker">theorymine
-        docker</a> directory run: </p>
+        <p>To generate the certificate and upload it, run the following from the
+        <a href="https://github.com/TheoryMine/theorymine-docker">theorymine
+        docker</a> directory: </p>
         <p><pre>
-        sh generate_certificate.sh <? print ($cert['title']); ?>
+        export THEORYMINE_CERT_ID=<? print ($cert['title']); ?><br>
+        ./generate_certificate.sh $THEORYMINE_CERT_ID<br>
+        ./upload_certificate_files.py $THEORYMINE_CERT_ID
         </pre></p>
-        <p>This will put the generated certificate files in the local <pre>docker_shared_dir</pre></p>
+        <p>The generated certificate files will be in the local <pre>docker_shared_dir</pre></p>
         <p>
           <a href="?go=admin&s=certificate3&pid=<?
             print ($cert['title']);
