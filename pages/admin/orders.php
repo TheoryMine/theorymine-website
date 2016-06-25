@@ -184,8 +184,10 @@ if($msgs != null){
 ?>
 
 <h1>Orders</h1>
-  <form action="?go=admin&s=orders" method="get">
-  <input type="hidden" name="act" value="search" size="70">
+  <form action="/" method="get">
+  <input type="hidden" name="go" value="admin">
+  <input type="hidden" name="s" value="orders">
+  <input type="hidden" name="act" value="search">
   <b>Search:</b> <input type="text" name="search" value="<? print $search; ?>" size="70"><br>
   Offset:
   <input type="text" name="offset" value="<? print $offset; ?>" size="10">; Limit: <input type="text" name="limit" value="<? print $limit; ?>" size="10">

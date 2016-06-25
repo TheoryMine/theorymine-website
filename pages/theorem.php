@@ -1,4 +1,4 @@
-<?php  
+<?php
 
 $pid = $_REQUEST['pid'];
 
@@ -19,6 +19,13 @@ Let
 then
 <div class="theorem-statement"><? print($thm_point['body']); ?></div>
 <div class="theorem-proof">Proof outline: <? print($proof_point['body']); ?></div>
+</div>
+<div>
+<?
+      $ord_id = $row['id'];
+      $facebook_link = "http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.theorymine.co.uk%2F%3Fgo%3Dcert_image%26pid%3D".$ord_id ."&amp;send=false&amp;layout=button_count&amp;width=50&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21";
+      ?>
+      <iframe src=<?print $facebook_link?> scrolling="no" frameborder="0" align="right" style="border:none; overflow:hidden; width:100px; height:21px; " allowTransparency="true"></iframe>
 </div>
 </center>
 
