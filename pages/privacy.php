@@ -71,7 +71,8 @@ Theorymine Limited </h1>
 <li>Privacy and Cookie Policy
 
   <ol>
-  <li>Theorymine Limited of 8 Melville Street, Edinburgh, Scotland, EH3 7NS (&#8220;we&#8221; or &#8220;us&#8221;) are committed to protecting and respecting your privacy.</li>
+  <li>Theory<font color="#b4975a">Mine</font> is Registered in Scotland as
+Company No. SC380326 and (&#8220;we&#8221; or &#8220;us&#8221;) are committed to protecting and respecting your privacy.</li>
   <li>This page (together with the documents referred to on it) provides the basis upon which any personal data that you submit to us will be processed by us.</li>
   <li>Please read the following carefully to understand our views and practices regarding personal data and how we will treat it. </li>
   <li>By using the site http://www.theorymine.co.uk (&#8220;our site&#8221;), you accept this privacy and cookie policy (our &#8220;privacy and cookie policy&#8221;). If you do not agree with any term in this privacy and cookie policy, please do not use our site or submit any personal data through it. </li>
@@ -150,8 +151,8 @@ Uses made of the information
     <li>to protect our rights, property, or safety, or others.</li>
     </ol>
   </li>
-  <li>We may also share the information that we collect (or procure the collection of) from or concerning you or which you submit to us with our business partners for marketing purposes or may send you information about other organisations&rsquo; goods or services.  We or our business partners may contact you by mail, telephone, fax, e-mail or other electronic messaging service with offers of goods and services that may be of interest to you.  By providing us with your fax number, telephone numbers or e-mail address, you consent to being contacted by these methods for these purposes. If you do not wish to receive marketing information from us or our business partners please email us at support@theorymine.co.uk or write to us at Theorymine Limited, 8 Melville Street, Edinburgh, EH3 &NS, United Kingdom.</li>
-  <li>We may keep personal data we collect (or procure the collection of) from or concerning you or which you submit to us for a reasonable period for the aforementioned purposes.<li>
+  <li>We may also share the information that we collect (or procure the collection of) from or concerning you or which you submit to us with our business partners for marketing purposes or may send you information about other organisations&rsquo; goods or services.  We or our business partners may contact you by mail, telephone, fax, e-mail or other electronic messaging service with offers of goods and services that may be of interest to you.  By providing us with your fax number, telephone numbers or e-mail address, you consent to being contacted by these methods for these purposes. If you do not wish to receive marketing information from us or our business partners please email us at info@theorymine.co.uk</li>
+  <li>We may keep personal data we collect (or procure the collection of) from or concerning you or which you submit to us for a reasonable period for the aforementioned purposes.</li>
   </ol>
 </li>
 <li>
@@ -183,7 +184,7 @@ Third party personal data
 <li>
 Your rights
   <ol>
-  <li>You have the right to ask us not to process your personal data for marketing purposes.  We will inform you (before collecting your data) if we intend to use your data for such purposes or if we intend to disclose your information to any third party for such purposes.  You can exercise your right to prevent such processing by checking certain boxes on the forms we use to collect your data.  You can also exercise the right at any time by emailing us at support@theorymine.co.uk or write to us at Theorymine Limited, 8 Melville Street, Edinburgh, EH3 &NS, United Kingdom. </li>
+  <li>You have the right to ask us not to process your personal data for marketing purposes.  We will inform you (before collecting your data) if we intend to use your data for such purposes or if we intend to disclose your information to any third party for such purposes.  You can exercise your right to prevent such processing by checking certain boxes on the forms we use to collect your data.  You can also exercise the right at any time by emailing us at info@theorymine.co.uk</li>
   <li>Our site may, from time to time, contain links to and from third party sites.  If you follow a link to any of these sites, please note that we are not responsible for the content or privacy policies of these sites nor for the way in which the personal data of their users is treated. Please check these policies before you submit any personal data to these sites.</li>
   </ol>
 </li>
@@ -203,7 +204,7 @@ Changes to our privacy and cookie policy
 <li>
 Contact
   <ol>
-  Questions, comments and requests regarding this privacy and cookie policy and how we use your personal data are welcomed and should be addressed to support@theorymine.co.uk or write to us at Theorymine Limited, 8 Melville Street, Edinburgh, EH3 7NS, United Kingdom.
+  Questions, comments and requests regarding this privacy and cookie policy, and how we use your personal data are welcomed and should be addressed to info@theorymine.co.uk .
   </ol>
 </li>
 </ol>

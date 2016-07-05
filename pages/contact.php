@@ -27,13 +27,10 @@ Theory<font color="#b4975a">Mine<br>
 <hr color="#b4975a">
 <a href="mailto:<? print $admin_email; ?>"><? print $admin_email; ?></a><br>
 </font>
+<br><br>
 <div align="right">
-Theory<font color="#b4975a">Mine</font><br>
-8 Melville Street<br/>
-EH3 7NS<br/>
-Edinburgh<br/>
-Midlothian<br/>
-United Kindom<br/>
+Theory<font color="#b4975a">Mine</font> is Registered in Scotland as
+Company No. SC380326.
 </div>
 <br><br>
 <a style="float: right" class="smalllogo" href="?go=overview">
@@ -45,14 +42,7 @@ United Kindom<br/>
 </table>
 </center>
 
-<br/>
-<br/>
-<font size="2pt">
-Registered in Scotland. 
-Company No. SC380326. 
-Registered office as stated.</font>
-<br/><br/><br/>
-
+<br><br>
 
 </div>
 </div>
