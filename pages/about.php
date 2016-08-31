@@ -58,22 +58,10 @@ Member of Centre for Intelligent Systems and their Applications.-->
 <tr>
   <td><a class="img_link" href="http://homepages.inf.ed.ac.uk/v1mjoha1/"> <img src="images/moa_johannson.jpg" width=100px></a> </td>
   <td> <p><b>Moa Johansson</b><br/><br/>
-    <!--Currently a postdoc researcher in the Departement of Informatics at Universita degli Studi di Verona in Italy. 
+    <!--Currently a postdoc researcher in the Departement of Informatics at Universita degli Studi di Verona in Italy.
     She did her PhD in the Mathematical Reasoning Group at the University of Edinburgh.-->
-    <?print $thislang['about_moa'];?>    
+    <?print $thislang['about_moa'];?>
   </p></td>
-</tr>
-<br/ >
-<tr>
-
-<td>
-</td>
-<td>
-
-<b>Roy McCasland</font></b> <br/><br/>
-
-<!--Senior Research Fellow at the School of Informatics, University of Edinburgh and member of the Centre for Intelligent Systems and their Applications.-->
-<?print $thislang['about_roy'];?></td>
 </tr>
 
 </table>
