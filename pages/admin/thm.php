@@ -34,22 +34,22 @@ if($act == "edit-thm" or $act == "make-new-thm"){
   }
 
   if($act == "edit-thm"){
-    // edit the theorem 
+    // edit the theorem
     edit_point($user_id, $point, $thm_status, $thm_name, $thm_statement, $abody);
     // edit it's proof
     edit_point($user_id, $proof_point, $proof_point['point_type'], $thm_statement, $thm_proof, $abody);
-    // if it's been moved to a different theory, edit the relation. 
+    // if it's been moved to a different theory, edit the relation.
     if($thm_thyid != $thy_point['id']) {
-      $inthy_rel = array('src_obj_id' => $point_id, 
-             'dst_obj_id' => $thm_thyid, 
+      $inthy_rel = array('src_obj_id' => $point_id,
+             'dst_obj_id' => $thm_thyid,
              'relation_type' => 'inthy.');
       $old_inthy_rel = array(
              'id' => $thy_point['r_id'],
              'prev_id' => $thy_point['r_prev_id'],
-             'history_id' => $thy_point['r_history_id'], 
+             'history_id' => $thy_point['r_history_id'],
              'src_obj_id' => $thy_point['src_obj_id'],
-             'dst_obj_id' => $thy_point['dst_obj_id'], 
-             'relation_type' => $thy_point['relation_type'], 
+             'dst_obj_id' => $thy_point['dst_obj_id'],
+             'relation_type' => $thy_point['relation_type'],
              );
       edit_rel($user_id, $old_inthy_rel, $inthy_rel, $abody);
     }
@@ -58,20 +58,20 @@ if($act == "edit-thm" or $act == "make-new-thm"){
     $search="p.id='$point_id'";
     $limit = 1;
   }
-  
+
   if($act == "make-new-thm"){
     $thy_point = $newthy_point;
     $point_id = create_point($user_id, $thm_status, $thm_name, $thm_statement, $abody);
 
     $proof_point_id = create_point($user_id, 'proof.', $thm_statement, $thm_proof, $abody);
 
-    $proof_rel = array('src_obj_id' => $proof_point_id, 
-                 'dst_obj_id' => $point_id, 
+    $proof_rel = array('src_obj_id' => $proof_point_id,
+                 'dst_obj_id' => $point_id,
                  'relation_type' => 'proof.');
     $proof_rel_id = create_rel($user_id, $proof_rel, $abody);
 
-    $inthy_rel = array('src_obj_id' => $point_id, 
-                 'dst_obj_id' => $thm_thyid, 
+    $inthy_rel = array('src_obj_id' => $point_id,
+                 'dst_obj_id' => $thm_thyid,
                  'relation_type' => 'inthy.');
     $inthy_rel_id = create_rel($user_id, $inthy_rel, $abody);
 
@@ -100,7 +100,7 @@ if($act == "delete-thm"){
     theorem proof: <? print $proof_point['body']; ?><br>
     theorem was in theory: <? print $thy_point['title']; ?><br>
     history_id: <? print $point['history_id']; ?><br>
-    action_id: <? print $point['action_id']; ?><br> 
+    action_id: <? print $point['action_id']; ?><br>
     time stamp: <? print $point['time_stamp']; ?>
     </div>
     <?
@@ -114,17 +114,19 @@ if($act == "delete-thm"){
 }
 ?>
 <h1>Theorems</h1>
-  <form action="?go=admin&s=thm" method="post">
+  <form action="?" method="get">
+  <input type="hidden" name="go" value="admin">
+  <input type="hidden" name="s" value="thm">
   <input type="hidden" name="act" value="search" size="70">
   <b>Search:</b> <input type="text" name="search" value="<? print $search; ?>" size="70"><br>
-  Offset: 
-  <input type="text" name="offset" value="<? print $offset; ?>" size="10">; Limit: <input type="text" name="limit" value="<? print $limit; ?>" size="10">  
+  Offset:
+  <input type="text" name="offset" value="<? print $offset; ?>" size="10">; Limit: <input type="text" name="limit" value="<? print $limit; ?>" size="10">
   <input class="greenbutton" type="submit" value="Search!"> &nbsp; <a class="greenbutton" href="?go=admin&s=thm">Show All</a><br>
   SQL added to WHERE e.g. <code>p.id = '3'</code> for finding points with id of 3, <code>p.title >= 'pants'</code> for finding all points where the title contains the substring 'pants'.
   </form>
 
 <?
-if($act == 'search') {
+if($act == 'search' && $search != null) {
   $res = get_from_points_and_actions_and_user($search, "AND p.point_type LIKE 'thm.%'", $offset, $limit);
   $rows = $res['rows'];
   if($rows != null) { ?>
@@ -135,9 +137,9 @@ if($act == 'search') {
     $fst = true;
     foreach($rows as $point) {
       $toggle = !$toggle;
-      if($fst){ $fst = false; 
+      if($fst){ $fst = false;
         ?><div class="simple-list0"><?
-      } else if($toggle){ 
+      } else if($toggle){
         ?><div class="simple-list1"><?
       } else {
         ?><div class="simple-list2"><?
@@ -146,7 +148,7 @@ if($act == 'search') {
 
       id: <? print $point['id']; ?>; theorem name: <? print $point['title']; ?><br>
       theorem status: <? print $point['point_type']; ?><br>
-      <? 
+      <?
       if($res['rowcount'] == 1 and $limit == 1) {
         $proof_point = get_point_related_to($point,"proof.","proof.");
         $thy_point = get_point_related_from($point,"thy.","inthy.");
@@ -155,14 +157,14 @@ if($act == 'search') {
         proof: (id: <? print $proof_point['id']; ?>) <? print $proof_point['body']; ?><br>
         history_id: <? print $point['history_id']; ?><br>
         prev_id: <? print $point['prev_id']; ?><br>
-        action_id: <? print $point['action_id']; ?><br> 
-        time_stamp: <? print $point['time_stamp']; ?><br> 
-        action_type: <? print $point['action_type']; ?>; action_timestamp: <? print $point['a_time_stamp']; ?>; 
-        action_body: <? print $point['action_body']; ?>; ipaddr: <? print $point['ipaddr']; ?><br> 
-        user_id: <? print $point['user_id']; ?>; firstname: <? print $point['firstname']; ?>; lastname: <? print $point['lastname']; ?>; email: <? print $point['email']; ?>; 
-        last_act_time: <? print $point['last_act_time']; ?>;  
-        last_act_kind: <? print $point['last_act_kind']; ?><br> 
-        <? 
+        action_id: <? print $point['action_id']; ?><br>
+        time_stamp: <? print $point['time_stamp']; ?><br>
+        action_type: <? print $point['action_type']; ?>; action_timestamp: <? print $point['a_time_stamp']; ?>;
+        action_body: <? print $point['action_body']; ?>; ipaddr: <? print $point['ipaddr']; ?><br>
+        user_id: <? print $point['user_id']; ?>; firstname: <? print $point['firstname']; ?>; lastname: <? print $point['lastname']; ?>; email: <? print $point['email']; ?>;
+        last_act_time: <? print $point['last_act_time']; ?>;
+        last_act_kind: <? print $point['last_act_kind']; ?><br>
+        <?
       }
        //print_r($point);
       ?>
@@ -183,16 +185,16 @@ if($act == 'search') {
 
 
 if($act == "show-edit-thm"){
-  if($point['user_id'] == null or $point['user_id'] == ""){ 
-    $point['user_id'] = $_SESSION['id']; 
-  } 
+  if($point['user_id'] == null or $point['user_id'] == ""){
+    $point['user_id'] = $_SESSION['id'];
+  }
   ?>
   <p>
 
   <div class="simple-block">
   <h3> Edit Theorem </h3>
 
-  <form action="?go=admin&s=thm" method="post">
+  <form action="?go=admin&s=thm" method="get">
   <input type="hidden" name="act" value="edit-thm">
   <input type="hidden" name="id" value="<? print($point['id']); ?>">
 
@@ -233,15 +235,15 @@ if($act == "show-edit-thm"){
   <input class="greenbutton" type="submit" value="Save changes"> &nbsp;&nbsp; <a class="redbutton" href="?go=admin&s=thm&act=search&search=<? print urlencode("p.id='" . $point['id'] . "'"); ?>">Cancel</a></td></tr>
   </table>
   </form>
-  
+
   <h4>Other actions</h4>
   <!-- <br><br>
   To update the last-change timestamp to now:<br>
-  <a class="greenbutton" href="?go=admin&s=thm&act=touch&obj_id=<? print($point['id']); ?>" method="post">Update time</a> 
+  <a class="greenbutton" href="?go=admin&s=thm&act=touch&obj_id=<? print($point['id']); ?>" method="post">Update time</a>
   <br><br> -->
-  To <span class="warning">delete</span> the theorem: 
-  <a class="redbutton" href="?go=admin&s=thm&act=delete-thm&id=<? print($point['id']); ?>" method="post">Delete theorem</a>
-  
+  To <span class="warning">delete</span> the theorem:
+  <a class="redbutton" href="?go=admin&s=thm&act=delete-thm&id=<? print($point['id']); ?>">Delete theorem</a>
+
   </div>
   <?
 } else {
@@ -249,12 +251,12 @@ if($act == "show-edit-thm"){
 }
 
 if($act == "enter-new-thm"){
-  if($user_id == null or $user_id == ""){ $user_id = $_SESSION['id']; } 
+  if($user_id == null or $user_id == ""){ $user_id = $_SESSION['id']; }
   ?>
-  <p> 
+  <p>
   <div class="simple-block">
   <h3> New Theorem Details </h3>
-  <form action="?go=admin&s=thm" method="post">
+  <form action="?go=admin&s=thm" method="get">
   <input type="hidden" name="act" value="make-new-thm">
   <table border="0">
   <tr><td align="right" valign="top">
@@ -298,7 +300,7 @@ if($act == "enter-new-thm"){
   </div>
   <?
 } else {
-  ?><p><a href="?go=admin&s=thm&act=enter-new-thm">Make a new theorem</a></p> 
+  ?><p><a href="?go=admin&s=thm&act=enter-new-thm">Make a new theorem</a></p>
 <?
 }
 ?>

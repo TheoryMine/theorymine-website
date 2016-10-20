@@ -26,10 +26,10 @@ if($act == "edit-rel" or $act == "make-new-rel"){
     $act='search';
     $search="r.id='$rel_id2'";
   }
-  
-  if($act == "make-new-rel"){ 
-    $rel = array('src_obj_id' => $pid1, 
-                 'dst_obj_id' => $pid2, 
+
+  if($act == "make-new-rel"){
+    $rel = array('src_obj_id' => $pid1,
+                 'dst_obj_id' => $pid2,
                  'relation_type' => $rel_type);
     $rel_id = create_rel($user_id, $rel, $act_body);
     $rel = get_rel($rel_id);
@@ -56,7 +56,7 @@ if($act == "delete-rel"){
     dst_obj_id: <? print $rel['dst_obj_id']; ?><br>
     prev_id: <? print $rel['prev_id']; ?><br>
     history_id: <? print $rel['history_id']; ?><br>
-    action_id: <? print $rel['action_id']; ?><br> 
+    action_id: <? print $rel['action_id']; ?><br>
     time stamp: <? print $rel['time_stamp']; ?>
     </div>
     <?
@@ -71,15 +71,17 @@ if($act == "delete-rel"){
 ?>
 <h3>Search</h3>
 
-  <form action="?go=admin&s=rels" method="post">
-  <input type="hidden" name="act" value="search" size="70">
+  <form action="?" method="get">
+  <input type="hidden" name="go" value="admin">
+  <input type="hidden" name="s" value="rels">
+  <input type="hidden" name="act" value="search">
   <input type="text" name="search" value="<? print $search; ?>" size="70">
-  <input class="greenbutton" type="submit" value="Search!"> &nbsp; <a class="greenbutton" href="?go=admin&s=rels">Show All</a><br>
+  <input class="greenbutton" type="submit" value="Search!"><br>
   e.g. <code>r.id = '3'</code> for finding rels with id of 3, <code>r.relation_type >= 'pants'</code> for finding all relations where the type contains the substring 'pants'.
   </form>
 
 <?
-if($act == 'search') {
+if($act == 'search' && $search != null) {
   $res = get_from_rels_and_stuff($search);
   $rows = $res['rows'];
   if($rows != null) { ?>
@@ -90,9 +92,9 @@ if($act == 'search') {
     $fst = true;
     foreach($rows as $rel) {
       $toggle = !$toggle;
-      if($fst){ $fst = false; 
+      if($fst){ $fst = false;
         ?><div class="simple-list0"><?
-      } else if($toggle){ 
+      } else if($toggle){
         ?><div class="simple-list1"><?
       } else {
         ?><div class="simple-list2"><?
@@ -102,19 +104,19 @@ if($act == 'search') {
       id: <? print $rel['id']; ?>; relation_type: <? print $rel['relation_type']; ?><br>
       src_obj_id: (<? print $rel['src_obj_id']; ?>; <? print $rel['p1_type']; ?>) <? print $rel['p1_title']; ?> <br>
       dst_obj_id: (<? print $rel['dst_obj_id']; ?>; <? print $rel['p2_type']; ?>) <? print $rel['p2_title']; ?>
-      <? 
+      <?
       if($res['rowcount'] == 1 and $limit == 1) {
         ?>
         history_id: <? print $rel['history_id']; ?><br>
         prev_id: <? print $rel['prev_id']; ?><br>
-        action_id: <? print $rel['action_id']; ?><br> 
-        time_stamp: <? print $rel['time_stamp']; ?><br> 
-        action_type: <? print $rel['action_type']; ?>; action_timestamp: <? print $rel['a_time_stamp']; ?>; 
-        action_body: <? print $rel['action_body']; ?>; ipaddr: <? print $rel['ipaddr']; ?><br> 
-        user_id: <? print $rel['user_id']; ?>; firstname: <? print $rel['firstname']; ?>; lastname: <? print $rel['lastname']; ?>; email: <? print $rel['email']; ?>; 
-        last_act_time: <? print $rel['last_act_time']; ?>;  
-        last_act_kind: <? print $rel['last_act_kind']; ?><br> 
-        <? 
+        action_id: <? print $rel['action_id']; ?><br>
+        time_stamp: <? print $rel['time_stamp']; ?><br>
+        action_type: <? print $rel['action_type']; ?>; action_timestamp: <? print $rel['a_time_stamp']; ?>;
+        action_body: <? print $rel['action_body']; ?>; ipaddr: <? print $rel['ipaddr']; ?><br>
+        user_id: <? print $rel['user_id']; ?>; firstname: <? print $rel['firstname']; ?>; lastname: <? print $rel['lastname']; ?>; email: <? print $rel['email']; ?>;
+        last_act_time: <? print $rel['last_act_time']; ?>;
+        last_act_kind: <? print $rel['last_act_kind']; ?><br>
+        <?
       }
        //print_r($point);
       ?>
@@ -132,53 +134,53 @@ if($act == 'search') {
 
 
 if($act == "show-edit-rel"){
-  if($rel['user_id'] == null or $rel['user_id'] == ""){ $rel['user_id'] = $_SESSION['id']; } 
+  if($rel['user_id'] == null or $rel['user_id'] == ""){ $rel['user_id'] = $_SESSION['id']; }
   ?>
   <p>
   <div class="simple-block">
   <h3> Edit Rel </h3>
-  
-  <p> 
+
+  <p>
   <h4>Change rel details: </h4>
   <form action="?go=admin&s=rels" method="post">
   <input type="hidden" name="act" value="edit-rel">
   <input type="hidden" name="rel_id" value="<? print($rel['id']); ?>">
 
   <table border="0">
-  
+
   <tr><td align="right">rel_id:</td>
   <td><? print($rel['id']); ?></td></tr>
- 
+
   <tr><td align="right" valign="top"><? print_required_field($rel['relation_type'], "relation_type"); ?>:
 </td>
   <td><input type="text" name="rtype" size="40" value="<? print(htmlentities($rel['relation_type'])); ?>">
   </td></tr>
-  
+
   <tr><td align="right">src_obj_id:</td>
   <td><input type="text" name="pid1" size="40" value="<? print(htmlentities($rel['src_obj_id'])); ?>"></td></tr>
-  
+
   <tr><td align="right">dst_obj_id:</td>
   <td><input type="text" name="pid2" size="40" value="<? print(htmlentities($rel['dst_obj_id'])); ?>"></td></tr>
-  
+
   <tr><td align="right">user_id:</td>
   <td><input type="text" name="user_id" size="40" value="<? print(htmlentities($rel['user_id'])); ?>"></td></tr>
 
   <tr><td align="right">action_body:</td>
   <td><input type="text" name="abody" size="40" value="<? print(htmlentities($rel['action_body'])); ?>"></td></tr>
-  
+
   <tr><td colspan="2" align="center"><br>
   <input class="greenbutton" type="submit" value="Save changes"> &nbsp;&nbsp; <a class="redbutton" href="?go=admin&s=rels&act=search&search=<? print urlencode("r.id='" . $rel['id'] . "'"); ?>">Cancel</a></td></tr>
   </table>
   </form>
-  
+
   <h4>Other actions</h4>
   <!-- <br><br>
   To update the last-change timestamp to now:<br>
-  <a class="greenbutton" href="?go=admin&s=rels&act=touch&obj_id=<? print($rel['id']); ?>" method="post">Update time</a> 
+  <a class="greenbutton" href="?go=admin&s=rels&act=touch&obj_id=<? print($rel['id']); ?>" method="post">Update time</a>
   <br><br> -->
-  To <span class="warning">delete</span> the rel: 
+  To <span class="warning">delete</span> the rel:
   <a class="redbutton" href="?go=admin&s=rels&act=delete-rel&rel_id=<? print($rel['id']); ?>" method="post">Delete rel</a>
-  
+
   </div>
   <?
 } else {
@@ -186,9 +188,9 @@ if($act == "show-edit-rel"){
 }
 
 if($act == "enter-new-rel"){
-  if($user_id == null or $user_id == ""){ $user_id = $_SESSION['id']; } 
+  if($user_id == null or $user_id == ""){ $user_id = $_SESSION['id']; }
   ?>
-  <p> 
+  <p>
   <div class="simple-block">
   <h3> New Rel Details </h3>
   <form action="?go=admin&s=rels" method="post">
@@ -202,10 +204,10 @@ if($act == "enter-new-rel"){
 
   <tr><td align="right">src_obj_id:</td>
   <td><input type="text" name="pid1" size="40" value="<? print(htmlentities($pid1)); ?>"></td></tr>
-  
+
   <tr><td align="right">dst_obj_id:</td>
   <td><input type="text" name="pid2" size="40" value="<? print(htmlentities($pid2)); ?>"></td></tr>
-  
+
   <tr><td align="right">user_id:</td>
   <td><input type="text" name="user_id" size="40" value="<? print(htmlentities($user_id)); ?>"></td></tr>
 

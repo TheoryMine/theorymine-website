@@ -184,7 +184,7 @@ if($msgs != null){
 ?>
 
 <h1>Orders</h1>
-  <form action="/" method="get">
+  <form action="?" method="get">
   <input type="hidden" name="go" value="admin">
   <input type="hidden" name="s" value="orders">
   <input type="hidden" name="act" value="search">
@@ -197,7 +197,7 @@ if($msgs != null){
   </form>
 
 <?
-if($act == 'search') {
+if($act == 'search' && $search != null) {
   if ($date != null and trim($date) != ""){
     if ($search != null and trim($search) != "")
     {
@@ -283,7 +283,9 @@ if($act == 'search') {
 
         if($point['point_type'] == 'order.new.') {
         ?>
-        <form action="?go=admin&s=orders" method="post">
+        <form action="?" method="get">
+        <input type="hidden" name="go" value="admin">
+        <input type="hidden" name="s" value="orders">
         <input type="hidden" name="act" value="attach_thm">
         <input type="hidden" name="id" value="<? print($point['id']); ?>">
         <input class="greenbutton" type="submit" value="Attach a Theorem">

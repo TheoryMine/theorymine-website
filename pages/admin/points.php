@@ -26,7 +26,7 @@ if($act == "edit-point" or $act == "make-new-point"){
     $search="p.id='$point_id2'";
     $limit = 1;
   }
-  
+
   if($act == "make-new-point"){
     $point_id2 = create_point($user_id2, $point_type2, $title2, $body2, $abody);
     $point = get_point($point_id2);
@@ -52,7 +52,7 @@ if($act == "delete-point"){
     body: <? print $point['body']; ?><br>
     point_type: <? print $point['point_type']; ?><br>
     history_id: <? print $point['history_id']; ?><br>
-    action_id: <? print $point['action_id']; ?><br> 
+    action_id: <? print $point['action_id']; ?><br>
     time stamp: <? print $point['time_stamp']; ?>
     </div>
     <?
@@ -65,17 +65,19 @@ if($act == "delete-point"){
   }
 }
 ?>
-  <form action="?go=admin&s=points" method="post">
+  <form action="?" method="get">
+  <input type="hidden" name="go" value="admin">
+  <input type="hidden" name="s" value="points">
   <input type="hidden" name="act" value="search" size="70">
   <b>Search:</b> <input type="text" name="search" value="<? print $search; ?>" size="70"><br>
-  Offset: 
-  <input type="text" name="offset" value="<? print $offset; ?>" size="10">; Limit: <input type="text" name="limit" value="<? print $limit; ?>" size="10">  
+  Offset:
+  <input type="text" name="offset" value="<? print $offset; ?>" size="10">; Limit: <input type="text" name="limit" value="<? print $limit; ?>" size="10">
   <input class="greenbutton" type="submit" value="Search!"> &nbsp; <a class="greenbutton" href="?go=admin&s=points">Show All</a><br>
   SQL added to WHERE e.g. <code>p.id = '3'</code> for finding points with id of 3, <code>p.title >= 'pants'</code> for finding all points where the title contains the substring 'pants'.
   </form>
 
 <?
-if($act == 'search') {
+if($act == 'search' && $search != null) {
   $res = get_from_points_and_actions_and_user($search, "", $offset, $limit);
   $rows = $res['rows'];
   if($rows != null) { ?>
@@ -86,9 +88,9 @@ if($act == 'search') {
     $fst = true;
     foreach($rows as $point) {
       $toggle = !$toggle;
-      if($fst){ $fst = false; 
+      if($fst){ $fst = false;
         ?><div class="simple-list0"><?
-      } else if($toggle){ 
+      } else if($toggle){
         ?><div class="simple-list1"><?
       } else {
         ?><div class="simple-list2"><?
@@ -97,19 +99,19 @@ if($act == 'search') {
 
       id: <? print $point['id']; ?>; title: <? print $point['title']; ?><br>
       point_type: <? print $point['point_type']; ?><br>
-      <? 
+      <?
       if($res['rowcount'] == 1 and $limit == 1) {
         ?>body: <div class="simple-block"><? print $point['body']; ?></div>
         history_id: <? print $point['history_id']; ?><br>
         prev_id: <? print $point['prev_id']; ?><br>
-        action_id: <? print $point['action_id']; ?><br> 
-        time_stamp: <? print $point['time_stamp']; ?><br> 
-        action_type: <? print $point['action_type']; ?>; action_timestamp: <? print $point['a_time_stamp']; ?>; 
-        action_body: <? print $point['action_body']; ?>; ipaddr: <? print $point['ipaddr']; ?><br> 
-        user_id: <? print $point['user_id']; ?>; firstname: <? print $point['firstname']; ?>; lastname: <? print $point['lastname']; ?>; email: <? print $point['email']; ?>; 
-        last_act_time: <? print $point['last_act_time']; ?>;  
-        last_act_kind: <? print $point['last_act_kind']; ?><br> 
-        <? 
+        action_id: <? print $point['action_id']; ?><br>
+        time_stamp: <? print $point['time_stamp']; ?><br>
+        action_type: <? print $point['action_type']; ?>; action_timestamp: <? print $point['a_time_stamp']; ?>;
+        action_body: <? print $point['action_body']; ?>; ipaddr: <? print $point['ipaddr']; ?><br>
+        user_id: <? print $point['user_id']; ?>; firstname: <? print $point['firstname']; ?>; lastname: <? print $point['lastname']; ?>; email: <? print $point['email']; ?>;
+        last_act_time: <? print $point['last_act_time']; ?>;
+        last_act_kind: <? print $point['last_act_kind']; ?><br>
+        <?
       }
        //print_r($point);
       ?>
@@ -130,34 +132,34 @@ if($act == 'search') {
 
 
 if($act == "show-edit-point"){
-  if($point['user_id'] == null or $point['user_id'] == ""){ $point['user_id'] = $_SESSION['id']; } 
+  if($point['user_id'] == null or $point['user_id'] == ""){ $point['user_id'] = $_SESSION['id']; }
   ?>
   <p>
   <div class="simple-block">
   <h3> Edit Point </h3>
-  
-  <p> 
+
+  <p>
   <h4>Change point details: </h4>
   <form action="?go=admin&s=points" method="post">
   <input type="hidden" name="act" value="edit-point">
   <input type="hidden" name="point_id2" value="<? print($point['id']); ?>">
 
   <table border="0">
-  
+
   <tr><td align="right">point_id:</td>
   <td><? print($point['id']); ?></td></tr>
- 
+
   <tr><td align="right" valign="top"><? print_required_field($point['title'], "title"); ?>:
 </td>
   <td><input type="text" name="title2" size="40" value="<? print(htmlentities($point['title'])); ?>">
   </td></tr>
-  
+
   <tr><td align="right">body:</td>
   <td><input type="text" name="body2" size="40" value="<? print(htmlentities($point['body'])); ?>"></td></tr>
-  
+
   <tr><td align="right">point_type:</td>
   <td><input type="text" name="point_type2" size="40" value="<? print(htmlentities($point['point_type'])); ?>"></td></tr>
-  
+
   <tr><td align="right">user_id:</td>
   <td><input type="text" name="user_id2" size="40" value="<? print(htmlentities($point['user_id'])); ?>"></td></tr>
 
@@ -168,15 +170,15 @@ if($act == "show-edit-point"){
   <input class="greenbutton" type="submit" value="Save changes"> &nbsp;&nbsp; <a class="redbutton" href="?go=admin&s=points&act=search&search=<? print urlencode("p.id='" . $point['id'] . "'"); ?>">Cancel</a></td></tr>
   </table>
   </form>
-  
+
   <h4>Other actions</h4>
   <!-- <br><br>
   To update the last-change timestamp to now:<br>
-  <a class="greenbutton" href="?go=admin&s=points&act=touch&obj_id=<? print($point['id']); ?>" method="post">Update time</a> 
+  <a class="greenbutton" href="?go=admin&s=points&act=touch&obj_id=<? print($point['id']); ?>" method="post">Update time</a>
   <br><br> -->
-  To <span class="warning">delete</span> the point: 
+  To <span class="warning">delete</span> the point:
   <a class="redbutton" href="?go=admin&s=points&act=delete-point&point_id2=<? print($point['id']); ?>" method="post">Delete Point</a>
-  
+
   </div>
   <?
 } else {
@@ -184,9 +186,9 @@ if($act == "show-edit-point"){
 }
 
 if($act == "enter-new-point"){
-  if($user_id2 == null or $user_id2 == ""){ $user_id2 = $_SESSION['id']; } 
+  if($user_id2 == null or $user_id2 == ""){ $user_id2 = $_SESSION['id']; }
   ?>
-  <p> 
+  <p>
   <div class="simple-block">
   <h3> New Point Details </h3>
   <form action="?go=admin&s=points" method="post">
@@ -213,7 +215,7 @@ if($act == "enter-new-point"){
   </div>
   <?
 } else {
-  ?><p><a href="?go=admin&s=points&act=enter-new-point">Make a new point</a></p> 
+  ?><p><a href="?go=admin&s=points&act=enter-new-point">Make a new point</a></p>
 <?
 }
 ?>

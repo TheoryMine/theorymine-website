@@ -1,16 +1,16 @@
 <?php
 // PayPal Notification Script - paypal website sends query here
-// This was adapted from PayPal's auto genereated php script (which was buggy!). 
+// This was adapted from PayPal's auto genereated php script (which was buggy!).
 
 //include basic libs
 include "../utils/common.php";
-include "../utils/prefs.php"; // sets the db_table names 
+include "../utils/prefs.php"; // sets the db_table names
 // sql libs
 include "../utils/sql_lib.php";
 include "../utils/sql_actions.php";
 include "../utils/sql_user.php";
 include "../utils/sql_points.php";
-// include "debug_post.php"; // sets the db_table names 
+// include "debug_post.php"; // sets the db_table names
 
 $pp_thm_cost = 15;
 $pp_item_name = 'Discover and Name a Theorem';
@@ -26,7 +26,7 @@ if(! load_global_prefs($prefs_filename)) {
   die("could not load sql prefs:" . $sqlprefs_fullfilename );
 } elseif(! sql_has_tables($db_tables)) {
   die("sql does not have the right tables: " . $db_tables);
-} else { 
+} else {
   // working ok
 }
 
@@ -49,8 +49,8 @@ $txn_type = sql_str_escape($_REQUEST['txn_type']);
 
 // log_as_point("precheck: txid: $txn_id;", $log_status, "paypal.precheck.");
 
-// sandbox 
-// opening the connection between us an "paypal secure" in order to send them the confirmation back 
+// sandbox
+// opening the connection between us an "paypal secure" in order to send them the confirmation back
 //$fp = fsockopen ('ssl://www.sandbox.paypal.com', 443, $errno, $errstr, 30);
 // real paypal
 $fp = fsockopen ('ssl://www.paypal.com', 443, $errno, $errstr, 30);
@@ -75,7 +75,7 @@ $paypal_vars = array(
 'txn_id',
 'txn_type',
 'verify_sign',
-// Buyer Information 
+// Buyer Information
 'address_country',
 'address_city',
 'address_country_code',
@@ -89,7 +89,7 @@ $paypal_vars = array(
 'payer_business_name',
 'payer_email',
 'payer_id',
-// Payment Information 
+// Payment Information
 'auth_amount',
 'auth_exp',
 'auth_id',
@@ -125,7 +125,7 @@ $paypal_vars = array(
 'tax',
 'transaction_entity');
 
-// make everything in paypal_req SQL escaped. 
+// make everything in paypal_req SQL escaped.
 $paypal_req = array();
 foreach($paypal_vars as $v) {
   $paypal_req[$v] = sql_str_escape($_REQUEST[$v]);
@@ -138,16 +138,19 @@ foreach ($_REQUEST as $key => $value) {
   }
 }
 
-// set theorem name, escape and unescaped versions 
-$theorem_name = $paypal_req['option_selection1'];
-$unescaped_theorem_name = $_REQUEST['option_selection1'];
+// set theorem name, escape and unescaped versions
+//$theorem_name = $paypal_req['option_selection1'];
+//$unescaped_theorem_name = $_REQUEST['option_selection1'];
+
+$theorem_name = $paypal_req['memo'];
+$unescaped_theorem_name = $_REQUEST['memo'];
 
 //language
 $language = $paypal_req['option_selection2'];
 
 
-// TODO: proper error handling: tell the tech-admin of thoerymine that 
-// something fishy happened. 
+// TODO: proper error handling: tell the tech-admin of thoerymine that
+// something fishy happened.
 
 // $fp is the conection to paypal (look above)
 if (!$fp) {
@@ -185,41 +188,43 @@ if (!$fp) {
 
   if($paypal_res == "VERIFIED") {
     ?>VERIFIED<?
-    // check if transaction ID has been processed before 
-    // (may happen on bad server load etc.) Can see what happened on 
+    // check if transaction ID has been processed before
+    // (may happen on bad server load etc.) Can see what happened on
     // paypal's logs.
     $checkquery = "select txn_id from " . $db_paypal_payment_info . " where txn_id='" . $txn_id . "'";
     $row = try_get_row($checkquery);
-    
-    if($row == null){  // check transaction has not already happened. 
-      if((subtype($txn_type,'subscr_') or $txn_type == "cart" 
-          or $txn_type == "recurring_payment_profile_created" 
-          or $txn_type == "new_case" or $txn_type == "adjustment" 
+
+    if($row == null){  // check transaction has not already happened.
+      if((subtype($txn_type,'subscr_') or $txn_type == "cart"
+          or $txn_type == "recurring_payment_profile_created"
+          or $txn_type == "new_case" or $txn_type == "adjustment"
           or $txn_type == "merch_pmt")) {
         // unsupported transatction type
         // FIXME: proper wanring here: email us!
         $log_status .= "<p>STRANGE transation type: '$txn_type'";
         $res_status = "error.txn_type.";
-      } else { // paypal don't define exactlty what else this can be, 
-               // but all other things are kinds of payments. 
+      } else { // paypal don't define exactlty what else this can be,
+               // but all other things are kinds of payments.
 
-        if($paypal_req['item_name'] == $pp_item_name 
-            and $paypal_req['item_number'] == $pp_item_number
-            and $paypal_req['mc_gross'] == $pp_thm_cost) 
-        { // correct option and price
+        // Note
+        // correct option and price
+        //if($paypal_req['item_name'] == $pp_item_name
+        //    and $paypal_req['item_number'] == $pp_item_number
+        //    and $paypal_req['mc_gross'] == $pp_thm_cost)
+        //{
           $user = try_get_user_by_email($paypal_req['payer_email']); // look up user by email address of register user
           if($user == null) {
             $password = genRandomString(10);// password
-            make_new_user($paypal_req['last_name'], $paypal_req['first_name'], 
-              $paypal_req['payer_email'], 
+            make_new_user($paypal_req['last_name'], $paypal_req['first_name'],
+              $paypal_req['payer_email'],
                 $password
               );
             $user = try_get_user_by_email($paypal_req['payer_email']);
-            // the account has not been registred by the user but has been automatically registed by paypal 
+            // the account has not been registred by the user but has been automatically registed by paypal
             // lock_user($user['id'], 'paypal_creation');
             unlock_user($user['id'], 'paypal_creation');
-            //TODO: eiter send email to user with passweord or email to get them to register to check order. 
-             $email_vals = array('email' => $paypal_req['payer_email'], 
+            //TODO: eiter send email to user with passweord or email to get them to register to check order.
+             $email_vals = array('email' => $paypal_req['payer_email'],
                 'lastname' => $paypal_req['last_name'],
                 'firstname' => $paypal_req['first_name'],
                 'password'=> $password,
@@ -230,22 +235,20 @@ if (!$fp) {
              if($language == 'en'){
                $message = email_of_phpfile('../pages/email/order/newuser_order_email.en.php',
                  $email_vals);
-             }
-             else if($language == 'cn'){
+             } else if($language == 'cn'){
                $message = email_of_phpfile('../pages/email/order/newuser_order_email.cn.php',
                  $email_vals);
-             }
-             else{
+             } else{
              $message = email_of_phpfile('../pages/email/order/newuser_order_email.php', $email_vals);
              }
              send_email($paypal_req['payer_email'],  'TheoryMine: Order Confirmation', $message);
-             
+
              $message2 = email_of_phpfile('../pages/email/order/us_order_email.php', $email_vals);
              send_email($admin_email, 'TheoryMine : new order', $message2);
-             
+
           }// registered user
           else {
-             $email_vals = array('email' => $paypal_req['payer_email'], 
+             $email_vals = array('email' => $paypal_req['payer_email'],
                 'lastname' => $paypal_req['last_name'],
                 'firstname' => $paypal_req['first_name'],
                 'password'=> $password,
@@ -255,38 +258,36 @@ if (!$fp) {
                 'user_email' => $paypal_req['payer_email']);
              if($language == "en"){
                $message = email_of_phpfile('../pages/email/order/knownuser_order_email.en.php', $email_vals);
-               }
-             else if($language == "cn"){
+             } else if($language == "cn"){
                 $message = email_of_phpfile('../pages/email/order/knownuser_order_email.cn.php', $email_vals);
-               }
-               else {
-                $message = email_of_phpfile('../pages/email/order/knownuser_order_email.php', $email_vals);
-               }
-               
+             } else {
+              $message = email_of_phpfile('../pages/email/order/knownuser_order_email.php', $email_vals);
+             }
+
              send_email($paypal_req['payer_email'], 'TheoryMine : Order Confirmation', $message);
              $message2 = email_of_phpfile('../pages/email/order/us_order_email.php', $email_vals);
              send_email($admin_email, 'TheoryMine : new order', $message2);
           }
-     
-          $point_id = create_point($user['id'] , 'order.new.', // point type 
-              $theorem_name, // name of theorem they requested 
-              $txn_id, // paypal transiction id 
-              'paypal order creation' // internal log of why this point was created 
+
+          $point_id = create_point($user['id'] , 'order.new.', // point type
+              $theorem_name, // name of theorem they requested
+              $txn_id, // paypal transiction id
+              'paypal order creation' // internal log of why this point was created
               );
           $log_status .= "<p>Success: Discover and Name a Theorem.";
           $res_status = "success.";
-        } else {
-          // CHECK: probably this is only a problem of mc_gross?
-          $log_status .= "<p>Error: Bad product: item_name: '".$paypal_req['item_name']."' (should be $pp_item_name); item_number  : '".$paypal_req['item_number']."' (should be $pp_item_number); mc_gross: '".$paypal_req['mc_gross']."' (should be: $pp_thm_cost);";
-          $res_status = "error.item.";
-          
-          $email_vals = array('paypal' => $paypal_req);
-          $m = email_of_phpfile('../pages/email/order/order_error.php', $email_vals);
-          send_email($admin_email, 'TheoryMine : order error', $m);
-        }
-        
+        // } else {
+        //   // CHECK: probably this is only a problem of mc_gross?
+        //   $log_status .= "<p>Error: Bad product: item_name: '".$paypal_req['item_name']."' (should be $pp_item_name); item_number  : '".$paypal_req['item_number']."' (should be $pp_item_number); mc_gross: '".$paypal_req['mc_gross']."' (should be: $pp_thm_cost);";
+        //   $res_status = "error.item.";
+
+        //   $email_vals = array('paypal' => $paypal_req);
+        //   $m = email_of_phpfile('../pages/email/order/order_error.php', $email_vals);
+        //   send_email($admin_email, 'TheoryMine : order error', $m);
+        // }
+
         // construct the paypal string to enter into the DB
-        // IMPROVE: in theory this could be done off-line, 
+        // IMPROVE: in theory this could be done off-line,
         // e.g. at initialisation.
         $paypal_sql_vars_string = '';
         $paypal_sql_values_string = '';
@@ -302,7 +303,7 @@ if (!$fp) {
         $strQuery = "insert into " .$db_paypal_payment_info. "(".$paypal_sql_input_vars_string.", point_id) values (".$paypal_sql_values_string.",'".$point_id."')";
         $result = sql_query($strQuery);
       }
-    } else { // transaction already happened. 
+    } else { // transaction already happened.
       // send an email
       $log_status .= "<p>Ignored: VERIFIED DUPLICATED TRANSACTION";
       $res_status = "ignored.";
@@ -321,9 +322,9 @@ if (!$fp) {
 }
 
 
-// create a log of what happened 
-log_as_point("txid: $txn_id; txn_type: $txn_type response: $paypal_res", 
-  $log_status, 
+// create a log of what happened
+log_as_point("txid: $txn_id; txn_type: $txn_type response: $paypal_res",
+  $log_status,
   "paypal." . $res_status);
 ?>
 

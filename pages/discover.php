@@ -82,14 +82,13 @@ if(isset($_POST['check_voucher'])){ ?>
        <!--To buy our gift items you first need topurchase a theorem. Once you receive this you will be able to follow the &quot;Gift Items Shop&quot;  link next to your theorem name on your profile page-->
        <?print $thislang['discover_part2'];?>
    </p>
-   <p>
+   <!-- <p>
       <font style="color:#CC9900; font-size:10pt;">
-      <!--N.B.: If you would like your theorem to be sent to a specific email address, please make sure you are registered and logged in with this email address. Otherwise TheoryMine will use your PayPal email address.-->
+        <- N.B.: If you would like your theorem to be sent to a specific email address, please make sure you are registered and logged in with this email address. Otherwise TheoryMine will use your PayPal email address. ->
       <?print $thislang['discover_part3'];?>
-
       </font>
       </p>
-    <p>
+    <p> -->
 
     <?
     $lang1 = $thislang['lang'];
@@ -108,9 +107,10 @@ if(isset($_POST['check_voucher'])){ ?>
     <table class="outer-preview">
     <tr>
       <td>
-      <font style="color:#CC0000; font-size:18pt;">
+      You can place an order by <a href="https://www.paypal.me/theorymine/15">sending us a payment of 15 UK pounds using Paypal</a>. Please indicate you theorem name in "special instructions to seller" section, and we will send you a newly discovered theorem with your name within 4 business days.
+      <!-- <font style="color:#CC0000; font-size:18pt;">
       Sorry, but TheoryMine is not currently taking any orders. We are working on updating our payment processing code to work with updates to PayPal. Please come back later, or send us an email (to info@theorymine.co.uk) and we will let you know when we are taking orders again.
-      </font>
+      </font> -->
       </td>
     </tr>
     </table>

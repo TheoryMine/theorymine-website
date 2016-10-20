@@ -19,17 +19,19 @@ if( $act == "show-edit-thm") {
 
 ?>
 <h1>CERTIFICATES</h1>
-  <form action="?go=admin&s=certificates" method="post">
+  <form action="?" method="get">
+  <input type="hidden" name="go" value="admin">
+  <input type="hidden" name="s" value="certificates">
   <input type="hidden" name="act" value="search" size="70">
   <b>Search:</b> <input type="text" name="search" value="<? print $search; ?>" size="70"><br>
-  Offset: 
-  <input type="text" name="offset" value="<? print $offset; ?>" size="10">; Limit: <input type="text" name="limit" value="<? print $limit; ?>" size="10">  
+  Offset:
+  <input type="text" name="offset" value="<? print $offset; ?>" size="10">; Limit: <input type="text" name="limit" value="<? print $limit; ?>" size="10">
   <input class="greenbutton" type="submit" value="Search!"> &nbsp; <a class="greenbutton" href="?go=admin&s=certificates">Show All</a><br>
   SQL added to WHERE e.g. <code>p.id = '3'</code> for finding points with id of 3, <code>p.title >= 'pants'</code> for finding all points where the title contains the substring 'pants'.
   </form>
 
 <?
-if($act == 'search') {
+if($act == 'search' && $search != null) {
   $res = get_from_points_and_actions_and_user($search, "AND p.point_type LIKE 'certificate.%'", $offset, $limit);
   $rows = $res['rows'];
   if($rows != null) { ?>
@@ -40,25 +42,25 @@ if($act == 'search') {
     $fst = true;
     foreach($rows as $point) {
       $toggle = !$toggle;
-      if($fst){ $fst = false; 
+      if($fst){ $fst = false;
         ?><div class="simple-list0"><?
-      } else if($toggle){ 
+      } else if($toggle){
         ?><div class="simple-list1"><?
       } else {
         ?><div class="simple-list2"><?
-      } ?> 
+      } ?>
       <div class="edit-btns-right">
       <a href="?go=certificate&pid=<? print $point['id']; ; ?>">certificate</a> |
       <a href="?go=admin&s=certificates&search=<? print urlencode("p.id='" . $point['id'] . "'"); ?>&limit=1">show</a></div>
 
       id: <? print $point['id']; ?>; certificate name: <? print $point['title']; ?><br>
-      <? 
+      <?
       if($res['rowcount'] == 1 and $limit == 1) {
         $thm_point=get_point_related_from($point,"certificate.","has_certificate.");
         ?></div>
         of theorem: (id: <? print $thm_point['id']; ?>) <? print $thm_point['title']; ?><br>
-       
-        <? 
+
+        <?
       }
        //print_r($point);
       ?>
