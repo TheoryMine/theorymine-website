@@ -194,7 +194,9 @@ if($act == "show-edit-thm"){
   <div class="simple-block">
   <h3> Edit Theorem </h3>
 
-  <form action="?go=admin&s=thm" method="get">
+  <form action="?" method="get">
+  <input type="hidden" name="go" value="admin">
+  <input type="hidden" name="s" value="thm">
   <input type="hidden" name="act" value="edit-thm">
   <input type="hidden" name="id" value="<? print($point['id']); ?>">
 

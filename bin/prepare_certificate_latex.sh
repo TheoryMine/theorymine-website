@@ -14,6 +14,9 @@ fi
 
 CODE_LOCATION="$(cd "$(dirname $0)/../"; pwd)";
 echo "Running in: $CODE_LOCATION"
+
+CODE_LOCATION="$(cd "$(dirname $0)/../"; pwd)";
+echo "Running in: $CODE_LOCATION"
 TMP_LOCATION="${CODE_LOCATION}/generated_certificates/$CID"
 mkdir -p ${TMP_LOCATION}
 cd ${TMP_LOCATION}
@@ -21,30 +24,33 @@ LOGFILE="errorcheck.log"
 
 #Copy images for latex
 echo "Copying images necessary for latex" > $LOGFILE
-/bin/cp -r "${CODE_LOCATION}/certificates/images" ${TMP_LOCATION}
+/bin/cp -r "${CODE_LOCATION}/latex_templates/images" ${TMP_LOCATION}
+/bin/cp -r "${CODE_LOCATION}/latex_templates/fonts" ${TMP_LOCATION}
 echo "Done copying images necessary for latex"
 
-#Certificate
-echo "Downloading certificate.tex ..."
-curl --data "cid=${CID}&pass=vtp:ca3nyH9ewgHR&dockind=certificate" http://theorymine.co.uk/?go=latex > "certificate.tex"
+${CODE_LOCATION}/bin/generate_latex_files.py ${CID}
 
-#theory image
+# #Certificate
+# echo "Downloading certificate.tex ..."
+# curl --data "cid=${CID}&pass=vtp:ca3nyH9ewgHR&dockind=certificate" http://theorymine.co.uk/?go=latex > "certificate.tex"
 
-echo "Downloading thy.tex ..."
-curl --data "cid=${CID}&pass=vtp:ca3nyH9ewgHR&dockind=theory"  http://theorymine.co.uk/?go=latex > "thy.tex"
+# #theory image
 
-#theorem image
+# echo "Downloading thy.tex ..."
+# curl --data "cid=${CID}&pass=vtp:ca3nyH9ewgHR&dockind=theory"  http://theorymine.co.uk/?go=latex > "thy.tex"
 
-echo "Downloading theorem.tex ..."
-curl --data "cid=${CID}&pass=vtp:ca3nyH9ewgHR&dockind=theorem"  http://theorymine.co.uk/?go=latex > "thm.tex"
+# #theorem image
 
-#certificate image
-echo "Downloading c_image.tex ..."
-curl --data "cid=${CID}&pass=vtp:ca3nyH9ewgHR&dockind=certificate_image"  http://theorymine.co.uk/?go=latex > "c_image.tex"
+# echo "Downloading theorem.tex ..."
+# curl --data "cid=${CID}&pass=vtp:ca3nyH9ewgHR&dockind=theorem"  http://theorymine.co.uk/?go=latex > "thm.tex"
 
-#brouchure
+# #certificate image
+# echo "Downloading c_image.tex ..."
+# curl --data "cid=${CID}&pass=vtp:ca3nyH9ewgHR&dockind=certificate_image"  http://theorymine.co.uk/?go=latex > "c_image.tex"
 
-echo "Downloading brouchure.tex ..."
-curl --data "cid=${CID}&pass=vtp:ca3nyH9ewgHR&dockind=brouchure"  http://theorymine.co.uk/?go=latex > "brouchure.tex"
+# #brouchure
 
-echo "Done Downloaded all source files."
+# echo "Downloading brouchure.tex ..."
+# curl --data "cid=${CID}&pass=vtp:ca3nyH9ewgHR&dockind=brouchure"  http://theorymine.co.uk/?go=latex > "brouchure.tex"
+
+# echo "Done Downloaded all source files."

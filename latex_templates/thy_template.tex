@@ -1,0 +1,54 @@
+\documentclass[a4paper]{article}
+\usepackage[paper=a4paper, top=2cm, bottom=1.4cm, left=1.3cm, right=1.3cm]{geometry}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{fix-cm}
+\usepackage{euler}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{eso-pic}
+\usepackage{helvet}
+\usepackage{url}
+
+% sets the background
+\newcommand\BackgroundPic{
+\put(-5,0){
+\parbox[b][\paperheight]{\paperwidth}{%
+\vfill
+\centering
+\vfill
+}}}
+
+\newcommand{\nat}{\mathbb{N}}
+\newcommand{\bool}{\text{Bool}}
+
+\linespread{3} % sets the space between lines to be correct when selectfont command is used
+
+\begin{document}
+\pagestyle{empty}
+
+\begin{center}
+
+
+\fontsize{18}{5}\selectfont
+Let\\
+\vspace{0.65cm}
+
+$${{{datatype_def_lhs}}} = {{{datatype_def_rhs}}}$$
+
+$${{{function_type}}}$$
+
+$${{{function_def_base_lhs}}} = {{{function_def_base_rhs}}}$$
+$${{{function_def_step_lhs}}} = {{{function_def_step_rhs}}}$$
+
+\vspace{0.3cm}
+then
+
+\fontsize{20}{5}\selectfont
+
+{{{theorem}}}
+
+\end{center}
+
+\end{document}

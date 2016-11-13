@@ -20,9 +20,10 @@ cd ${TMP_LOCATION}
 LOGFILE="errorcheck.log"
 
 #Certificate
-pdflatex -interaction nonstopmode -output-format pdf certificate.tex
-pdflatex -interaction nonstopmode -output-format pdf certificate.tex
-pdflatex -interaction nonstopmode -output-format pdf certificate.tex
+pdflatex -interaction nonstopmode -output-format pdf "certificate.tex"
+pdflatex -interaction nonstopmode -output-format pdf "certificate.tex"
+pdflatex -interaction nonstopmode -output-format pdf "certificate.tex"
+convert -density 400 "certificate.pdf" "certificate_image.jpg"
 echo "Done creating certificate"
 
 #theory image
@@ -38,13 +39,6 @@ pdflatex -interaction nonstopmode -output-format pdf "thm.tex"
 pdflatex -interaction nonstopmode -output-format pdf "thm.tex"
 convert -gravity South -chop 0x4000 -density 400 "thm.pdf" "thm.jpg"
 echo "Done creating theorem"
-
-#certificate image
-pdflatex -interaction nonstopmode -output-format pdf "c_image.tex"
-pdflatex -interaction nonstopmode -output-format pdf "c_image.tex"
-pdflatex -interaction nonstopmode -output-format pdf "c_image.tex"
-convert -density 400 "c_image.pdf" "certificate_image.jpg"
-echo "Done creating certificate image"
 
 #brouchure
 pdflatex -interaction nonstopmode -output-format pdf  "brouchure.tex"
