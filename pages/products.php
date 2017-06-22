@@ -91,7 +91,7 @@ theorem:--><?print $thislang['gift_h1_2'];?>
 
 -->
 <p>
-All gift items are provided and manufactured by <a href="http://www.zazzle.co.uk/">Zazzle</a>
+<!--All gift items are provided and manufactured by <a href="http://www.zazzle.co.uk/">Zazzle</a> --><?print $thislang['gift_provider'];?>
 </p>
 <br>
 <br>
