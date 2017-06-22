@@ -48,7 +48,7 @@ if(isset($_POST['check_voucher'])){ ?>
 
 
 
-<h1><!--Discover and name a new theorem:--><?print $thislang['discover_title'];?> try <font style="color:#CC0000;"><!--Only
+<h1><!--Discover and name a new theorem: try--><?print $thislang['discover_title'];?> <font style="color:#CC0000;"><!--Only
 &pound;15.00--><?print $price;?></font></h1>
 
 <table class="discover_body_table">
@@ -107,7 +107,7 @@ if(isset($_POST['check_voucher'])){ ?>
     <table class="outer-preview">
     <tr>
       <td>
-      You can place an order by <a href="https://www.paypal.me/theorymine/15">sending us a payment of 15 UK pounds using Paypal</a>. Please indicate you theorem name in "special instructions to seller" section, and we will send you a newly discovered theorem with your name within 4 business days.
+      <!--You can place an order by <a href="https://www.paypal.me/theorymine/15">sending us a payment of 15 UK pounds using Paypal</a>. Please indicate you theorem name in "special instructions to seller" section, and we will send you a newly discovered theorem with your name within 4 business days.--><?print $thislang['discover_part4'];?>
       <!-- <font style="color:#CC0000; font-size:18pt;">
       Sorry, but TheoryMine is not currently taking any orders. We are working on updating our payment processing code to work with updates to PayPal. Please come back later, or send us an email (to info@theorymine.co.uk) and we will let you know when we are taking orders again.
       </font> -->
