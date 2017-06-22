@@ -81,7 +81,7 @@ if($nofooter!=1) {
     </div>
     
     <div id="footer-copyright">
-      Copyright 2011 TheoryMine Limited
+      <!--Copyright 2011 TheoryMine Limited--><?print $thislang['footer_copyright'];?>
     </div>
     
     <div id="footer-got-a-question">
