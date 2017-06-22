@@ -24,11 +24,12 @@ $lang = array (
 
   'discover_title' => '命名一个新的数学定理:',
   'discover_15'=> '仅15英镑',
-  'discover_imagetag' => '*这只是一个预览，不是您订购的定理。',
+  'discover_imagetag' => '*这只是预览示例，不是您订购的定理。',
   'discover_part1' => '  通常我们的机器数学专家需要2～4天来探寻您的数学定理。一旦新的定理被发现，我们就会以邮件的方式告知您：您的定理已经就绪。接下来您可以登录我们的系统下载证书',
   'discover_see_ex' => '参阅证书模板',
   'discover_part2' =>'在订购您的数学定理后，您还可以购买其他与定理相关的礼品。当您收到您的定理后，您可以进入您的账户页面，点击定理名旁边的“礼品中心”按钮来继续。' ,
   'discover_part3' => '注意：如果您想使用特定的邮箱来接受您的定理，请您确保使用该地址来注册和登录我们的系统。否则，我们将把您购买的定理发送到您的Paypal的邮箱地址。',
+  'discover_part4' => '请使用Paypal支付订单, 仅需15英镑您就可以命名一个定理。请务必将您指定的定理名字填在支付说明中，以便我们处理您的订单。我们将在4个工作日内，把最新发现的定理以您的命名发送给您。',
   'discover_choose' => '选择您的定理名字:',
   'discover_eg' => '例如： Tom定理',
   'discover_tc1' => '我已阅读并同意条款和条例',
@@ -117,6 +118,7 @@ $lang = array (
   'gift_li2_1'=>  'T恤',
   'gift_li2_2'=>  '马克杯',
   'gift_li2_3'=>  '鼠标垫',
+  'gift_provider'=>  '以上礼品均由 <a href="http://www.zazzle.co.uk/">Zazzle</a> 生产提供。',	
   'gift_end' => '在购买这些礼品前，请先购买数学定理。在您收到订立时，您可以登录我们的系统到<a href= "?go=login">您的账户</a>，点击在您定理的名字的旁边“礼品中心”。',
 
   //Testimonials
@@ -457,7 +459,7 @@ style="color:#0000FF">2</span>。 </p>',
 	//register
 
 	'register_title' => '注册TheoryMine',
-	'register_p1' => '注册成为TheoryMine的会员来获得我们产品的实时资讯（例如，和您定理相关的T恤和鼠标垫，甚至的在线期刊！），同时可以查看您的定理和其他人的定理的联系。',
+	'register_p1' => '注册成为TheoryMine的会员来获得我们产品的实时资讯，同时可以查看您的定理和其他人的定理的联系。',
 	'register_missing_entry' => '请您填写带*好的项目并重新输入您的密码。',
 	'register_mismatch' => '您的密码不一致，请重新输入。',
 	'register_privacy' => '关于我们如何处理个人信息的条款请访问 <a href="?go=privacy">这里 </a>',
