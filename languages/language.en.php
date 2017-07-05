@@ -124,6 +124,7 @@ which was then further developed in
   'gift_li2_1'=>  'A t-shirt:<font color="#b4975a"> from &pound;14.10 </font>',
   'gift_li2_2'=>  'A mug:<font color="#b4975a"> from &pound;12.35 </font>',
   'gift_li2_3'=>  'A mouse mat:<font color="#b4975a"> from &pound;10.10 </font>',
+  'gift_provider'=>  'All gift items are provided and manufactured by <a href="http://www.zazzle.co.uk/">Zazzle</a>'
   'gift_end' => 'To buy a gift item first purchase a theorem. Once you receive this you will be able to follow the "Gift Items Shop" link next to your theorem name on <a href= "?go=login">your profile page</a>.',
 
   //Testimonials
