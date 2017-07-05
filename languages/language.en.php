@@ -31,6 +31,7 @@ you can immortalise your loved ones, teachers, friends and even yourself and you
   'discover_part2' =>'To buy our gift items you first need topurchase a theorem. Once you receive this you will be able to follow the &quot;Gift Items Shop&quot;  link next to your theorem name on your profile page',
 
   'discover_part3' => 'N.B.: If you would like your theorem to be sent to a specific email address, please make sure you are registered and logged in with this email address. Otherwise TheoryMine will use your PayPal email address.',
+  'discover_part4' => 'You can place an order by <a href="https://www.paypal.me/theorymine/15GDP">sending us a payment of 15 UK pounds using Paypal</a>. <b>Please indicate the theorem name in "special instructions to seller"</b> section, and we will send you a newly discovered theorem within 7 business days.',
   'discover_choose' => 'Choose your Theorem Name:',
   'discover_eg' => 'e.g. Tom\'s theorem, or The Bucklesham lemma',
   'discover_tc1' => 'I have read and accept the',
