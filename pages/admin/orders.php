@@ -305,7 +305,9 @@ if($act == 'search' && $search != null) {
         docker</a> directory: </p>
         <p><pre>
         export THEORYMINE_CERT_ID=<? print ($cert['title']); ?><br>
-        ./generate_certificate.sh $THEORYMINE_CERT_ID<br>
+        node build/tools/latexify.js \
+          --inputCid=$THEORYMINE_CERT_ID \
+          --outputDir=docker_shared_dir/$THEORYMINE_CERT_ID<br>
         ./upload_certificate_files.py $THEORYMINE_CERT_ID
         </pre></p>
         <p>The generated certificate files will be in the local <pre>docker_shared_dir</pre></p>
