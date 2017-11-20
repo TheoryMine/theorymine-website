@@ -60,7 +60,7 @@ include 'pages/common_parts/header.php';
 <h3 class="para_heading" id="process"><?print $thislang['faq_q2'];?></h3>
 
 <p><!--If you are not already registered with TheoryMine, you will receive a user name and password to log into the website where you will be able to view the status of your order. <br>
-It will take a up to 2 working days (excluding weekends) for our robot mathematicians to discover your theorem.
+It will take a up to 5 working days (excluding weekends) for our robot mathematicians to discover your theorem.
 You will receive a notification email once your theorem is discovered. You will then be able to download the certificate by logging into this website, and clicking &quot;View Certificate&quot;.--><?print $thislang['faq_a2'];?></p>
 
 <h3 class="para_heading" id="extras"><?print $thislang['faq_q3'];?></h3>

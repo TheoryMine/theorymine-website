@@ -75,7 +75,7 @@ if(isset($_POST['check_voucher'])){ ?>
         <!--By placing an order with TheoryMine, you name a newly discovered mathematical theorem&sup1;. This lets you immortalise your loved ones, teachers, friends and even yourself and your favourite pets!
         <br>
         <br>
-        It may take upto 2 working days (excluding weekends) for our robot mathematicians to discover your theorem. Once discovered we will send you a notification by email that your theorem is ready! You will then be able to download a certificate of the discovery by logging in the website.-->
+        It may take upto 5 working days (excluding weekends) for our robot mathematicians to discover your theorem. Once discovered we will send you a notification by email that your theorem is ready! You will then be able to download a certificate of the discovery by logging in the website.-->
        <?print $thislang['discover_part1'];?>
        (<a href="?go=certificate_example"><?print $thislang['discover_see_ex'];?></a>).
         <br>
