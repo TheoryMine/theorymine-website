@@ -74,7 +74,7 @@ you can immortalise your loved ones, teachers, friends and even yourself and you
   'faq_q19' => 'BY WHAT AUTHORITY CAN I ASSIGN A NAME TO MY THEOREM?',
   'faq_q20' => 'WHY DO YOU CLAIM THAT THEOREMS LAST FOR EVER?',
   'faq_a1' => 'You can buy new theorems which become yours to name. You will receive a printable certificate in PDF form of the theorem and its discovery (including an outline of the proof). You can then give this away, frame it, sing it, as you like! </p><p>Also, you can purchase a range of products to go with your theorem, like T-shirts, mouse mats and mugs. All gift items are provided and manufactured by <a href="http://www.zazzle.com/">Zazzle</a>.',
-  'faq_a2' => 'If you are not already registered with TheoryMine, you will receive a user name and password to log into the website where you will be able to view the status of your order. <br> It will take a up to 2 working days (excluding weekends) for our robot mathematicians to discover your theorem. You will receive a notification email once your theorem is discovered. You will then be able to download the certificate by logging into this website, and clicking &quot;View Certificate&quot;',
+  'faq_a2' => 'If you are not already registered with TheoryMine, you will receive a user name and password to log into the website where you will be able to view the status of your order. <br> It will take a up to 5 working days (excluding weekends) for our robot mathematicians to discover your theorem. You will receive a notification email once your theorem is discovered. You will then be able to download the certificate by logging into this website, and clicking &quot;View Certificate&quot;',
   'faq_a3' => 'Yes. You will be able to purchase additional gift packages (t-shirts, mugs and mouse mats) with your theorem once you have received your certificate. You can do so by logging in to your account and click on the "Gift Items Shop " link next to your theorem name.',
   'faq_a4' => 'No. The next theorem that our robot mathematicians discover will be given the name you have chosen.',
   'faq_a5' => 'No. Once a name has been given to a Theorem, that is the name the theorem will have forever.<br/> However, if you have just ordered a theorem and your order has not been fulfilled yet, you can change your theorem name by emailing us at support@theorymine.co.uk',
@@ -418,7 +418,7 @@ also sometimes used to refer to this set of theorems.
 
 	//success
 
-	'success' => '<h1>Congratulations!</h1><p>Your order was successful.<p/><p> Our robot mathematicians are now working on your theorem. This usually takes up to 2 working days (excluding weekends). </p><p>As soon as the theorem is ready, you will receive a confirmation email.<br/></p>',
+	'success' => '<h1>Congratulations!</h1><p>Your order was successful.<p/><p> Our robot mathematicians are now working on your theorem. This usually takes up to 5 working days (excluding weekends). </p><p>As soon as the theorem is ready, you will receive a confirmation email.<br/></p>',
 
 		//unlock
 	'unlock_title'=> 'Account Unlocked!',

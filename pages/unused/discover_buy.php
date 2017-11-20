@@ -78,7 +78,7 @@ include 'pages/common_parts/header.php';
       We charge &pound;13.50 (UK pounds) for the discovery and naming of a new  theorem&sup1;. <br/>
       For this price a new theorem will be discovered and named as you specified. <br/>
       You will receive a user name and password to log in to this website. You will be able to view your theorem and certificate at any time by login in our site.  <a href="?go=certificate_example">View Example Certificate </a> <br/><br/>
-      It will take a max of 2 working days (excluding weekends) for our robot matehmaticians to discover your theorem.<br/> You will recieve a notification email when your theorem is ready!
+      It will take a max of 5 working days (excluding weekends) for our robot matehmaticians to discover your theorem.<br/> You will recieve a notification email when your theorem is ready!
       <br/>
     
     </p>

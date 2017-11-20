@@ -8,7 +8,7 @@ include 'pages/common_parts/header.php';
 
 <p>
 Your order was successful.<p/>
-<p> Our robot mathematicians are now working on your theorem. This usually takes up to 2 working days (excluding weekends). </p>
+<p> Our robot mathematicians are now working on your theorem. This usually takes up to 5 working days (excluding weekends). </p>
 <p>
 As soon as the theorem is ready, you will receive a confirmation email.<br/>
 </p>--><?print $thislang['success'];?>

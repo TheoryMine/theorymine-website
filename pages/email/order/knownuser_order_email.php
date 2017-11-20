@@ -9,7 +9,7 @@ Our robot mathematicians are now working on your order for the theorem: </p>
 <p align="center">
 <? print htmlentities($val['thm_name']); ?></p>
 
-<p>This is likely to take up to 2 working days (excluding weekends). </p>
+<p>This is likely to take up to 5 working days (excluding weekends). </p>
 
 <p>
 As soon as the theorem is ready, we will send you a confirmation email containing a link to the PDF certificate (a printable copy of the discovery certificate).</p>
