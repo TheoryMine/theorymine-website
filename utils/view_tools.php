@@ -32,6 +32,9 @@ function print_related_points($point) {
         <li>[<? print($rpoint['r_id']); ?>] <? print($rpoint['relation_type']); ?> &larr;
         [<? print($rpoint['id']); ?>] <? print($rpoint['title']); ?> (<? print($rpoint['point_type']); ?>)
         <?
+        if(preg_match('/^thm\\./', $rpoint['point_type'])) {
+          print($rpoint['body']);
+        }
       }
     }
     if($relps_from['rowcount'] > 0) {
@@ -40,6 +43,9 @@ function print_related_points($point) {
         <li>[<? print($rpoint['r_id']); ?>] <? print($rpoint['relation_type']); ?> &rarr;
         [<? print($rpoint['id']); ?>] <? print($rpoint['title']); ?> (<? print($rpoint['point_type']); ?>)
         <?
+        if(preg_match('/^thm\\./', $rpoint['point_type'])) {
+          print($rpoint['body']);
+        }
       }
     }
     if($relps_to['rowcount'] > 0 or $relps_from['rowcount'] > 0) {
