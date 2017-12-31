@@ -16,7 +16,24 @@ function get_users_named_theorem($user_id) {
   ." AND p.point_type LIKE 'thm.named.%'");
 }
 
-
+function print_related_points_info($rpoint) {
+  if(preg_match('/^thm\\./', $rpoint['point_type'])) {
+    print('<a href="https://theorymine.com/?go=admin&s=thm&search=p.id%3D%27' .
+      $rpoint['id'] . '%27&limit=1">Thm: ' . $rpoint['title'] . '</a>' . ': ' . $rpoint['body'] .
+      ' (' . $rpoint['point_type'] . ')');
+  } else if(preg_match('/^order\\./', $rpoint['point_type'])) {
+    print('<a href="https://theorymine.com/?go=admin&s=orders&search=p.id%3D%27' .
+      $rpoint['id'] . '%27&limit=1">Order: ' . $rpoint['title'] . '</a>' .
+      ' (' . $rpoint['point_type'] . ')');
+  } else if(preg_match('/^thy\\./', $rpoint['point_type'])) {
+    print('<a href="https://theorymine.com/?go=admin&s=thy&search=p.id%3D%27' .
+      $rpoint['id'] . '%27&limit=1">Thy: ' . $rpoint['title'] . '</a>' .
+      ' (' . $rpoint['point_type'] . ')');
+  } else {
+    print('[' . $rpoint['id'] . ']' . $rpoint['title'] .
+      ' (' . $rpoint['point_type'] . ')');
+  }
+}
 
 // basic print for all points related to this one. 
 // for debugging really.  
@@ -30,22 +47,16 @@ function print_related_points($point) {
       foreach($relps_to['rows'] as $rpoint) {
         ?>
         <li>[<? print($rpoint['r_id']); ?>] <? print($rpoint['relation_type']); ?> &larr;
-        [<? print($rpoint['id']); ?>] <? print($rpoint['title']); ?> (<? print($rpoint['point_type']); ?>)
         <?
-        if(preg_match('/^thm\\./', $rpoint['point_type'])) {
-          print($rpoint['body']);
-        }
+        print_related_points_info($rpoint);
       }
     }
     if($relps_from['rowcount'] > 0) {
       foreach($relps_from['rows'] as $rpoint) {
         ?>
         <li>[<? print($rpoint['r_id']); ?>] <? print($rpoint['relation_type']); ?> &rarr;
-        [<? print($rpoint['id']); ?>] <? print($rpoint['title']); ?> (<? print($rpoint['point_type']); ?>)
         <?
-        if(preg_match('/^thm\\./', $rpoint['point_type'])) {
-          print($rpoint['body']);
-        }
+        print_related_points_info($rpoint);
       }
     }
     if($relps_to['rowcount'] > 0 or $relps_from['rowcount'] > 0) {
