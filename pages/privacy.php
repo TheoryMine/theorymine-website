@@ -183,10 +183,31 @@ Third party personal data
 </li>
 <li>
 Your rights
-  <ol>
-  <li>You have the right to ask us not to process your personal data for marketing purposes.  We will inform you (before collecting your data) if we intend to use your data for such purposes or if we intend to disclose your information to any third party for such purposes.  You can exercise your right to prevent such processing by checking certain boxes on the forms we use to collect your data.  You can also exercise the right at any time by emailing us at info@theorymine.co.uk</li>
-  <li>Our site may, from time to time, contain links to and from third party sites.  If you follow a link to any of these sites, please note that we are not responsible for the content or privacy policies of these sites nor for the way in which the personal data of their users is treated. Please check these policies before you submit any personal data to these sites.</li>
-  </ol>
+<ol>
+As a data subject you have certain legal rights subject to certain exceptions under the applicable Data Protection legislation including:
+
+  <li>the right to access the personal data held about you;</li>
+  <li>the right to ask us not to process your personal data for marketing
+    purposes;  We will inform you (before collecting your data) if we intend to use your data for such purposes or if we intend to disclose your information to any third party for such purposes. </li>
+  <li>the right to withdraw at any time any consent you have given to
+    receive marketing material from us, or in any other case where we
+    process your personal data on the basis of a consent that you have
+    given (and not on some other legal basis);</li>
+  <li>the right to ask us to rectify inaccurate personal data about you;</li>
+  <li>the right to ask for the restriction of personal data concerning
+    yourself that is inaccurate, unlawfully processed or no longer required;</li>
+  <li>the right to ask for the transfer of your personal data in a
+    structured, commonly used and machine readable format where the
+    processing is based on your consent;</li>
+  <li>the right to ask for the erasure of personal data concerning
+    yourself where processing is no longer necessary or the legitimate
+    interests we have in processing your personal data are overridden by
+    your interests, rights and freedoms as the data subject; and</li>
+  <li>the right to withdraw your consent at any time to your name or image
+    being used in connection with any of our competitions or promotions
+    for publicity purposes.</li>
+</ol>
+You can exercise any of your rights at any time by contacting us at info@theorymine.co.uk.
 </li>
 <li>
 Access to information
