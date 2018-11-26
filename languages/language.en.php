@@ -26,7 +26,7 @@ you can immortalise your loved ones, teachers, friends and even yourself and you
   'discover_title' => 'Discover and name a new theorem:',
   'discover_15'=> 'Only &pound;15.00',
   'discover_imagetag' => '*This is just an illustration, it is not the certificate that you will receive.',
-  'discover_part1' => 'By placing an order with TheoryMine, you name a newly discovered mathematical theorem&sup1;. This lets you immortalise your loved ones, teachers, friends and even yourself and your favourite pets! <br><br> It may take upto 4 working days (excluding weekends) for our robot mathematicians to discover your theorem. We do send printed copies. Once discovered we will send you a notification by email that your theorem is ready with links to let you download a certificate of the discovery by logging in the website.',
+  'discover_part1' => 'By placing an order with TheoryMine, you name a newly discovered mathematical theorem&sup1;. This lets you immortalise your loved ones, teachers, friends and even yourself and your favourite pets! <br><br> It may take upto 4 working days (excluding weekends) for our robot mathematicians to discover your theorem. We do NOT send printed copies. Once discovered we will send you a notification by email that your theorem is ready with links to let you download a certificate of the discovery by logging in the website.',
   'discover_see_ex' => 'See an example certificate',
   'discover_part2' =>'To buy our gift items you first need topurchase a theorem. Once you receive this you will be able to follow the &quot;Gift Items Shop&quot;  link next to your theorem name on your profile page',
 
