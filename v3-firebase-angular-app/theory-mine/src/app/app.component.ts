@@ -12,13 +12,15 @@ export class AppComponent {
 
   constructor(public afAuth: AngularFireAuth) {
   }
+
   login() {
-    this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
+    this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider())
+    .then(res => console.log(res))
   }
+  
   logout() {
     this.afAuth.auth.signOut();
   }
-
 }
 
 
