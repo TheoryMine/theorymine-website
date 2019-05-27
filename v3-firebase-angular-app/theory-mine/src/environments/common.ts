@@ -1,10 +1,12 @@
 export const environment = {
+    // Publicly visibile info/config for TheoryMine Firebase app. 
     firebase: {
-      apiKey: "YOUR_API_KEY",
-      authDomain: "YOUR_AUTH_DOMAIN",
-      databaseURL: "YOUR_DATABASE_URL",
-      projectId: "YOUR_PROJECT_ID",
-      storageBucket: "YOUR_STORAGE_BUCKET",
-      messagingSenderId: "YOUR_SENDER_ID"
+      apiKey: "AIzaSyAso-tw2yTG2c0zfDUrzg3eYxOeLQWLNdc",
+      authDomain: "theory-mine.firebaseapp.com",
+      databaseURL: "https://theory-mine.firebaseio.com",
+      projectId: "theory-mine",
+      storageBucket: "theory-mine.appspot.com",
+      messagingSenderId: "779617019",
+      appId: "1:779617019:web:459f77df96799bd3"
     }
   };
