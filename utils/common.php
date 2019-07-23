@@ -32,9 +32,9 @@ function new_msg($s) {
 
 function fail_page(){
   global $register_link, $login_link, $profile_link, $logout_link;
-  include('pages/timeout.php'); 
-  include('pages/common_parts/footer.php'); 
-  die("");  
+  include('pages/timeout.php');
+  include('pages/common_parts/footer.php');
+  die("");
 }
 
 function str_starts($big, $sml) {
@@ -84,9 +84,9 @@ function stripslashes_rec($value)
   stripslashes($value);
   return $value;
 }
-  
 
-// set default value: 
+
+// set default value:
 //it means if $value then returne $value else return $default
 function set_default($value, $default){
     return $value ? $value : $default;
@@ -102,10 +102,10 @@ function print_required_field($field,$s){
 
 
 
-// user input error: it's not a bug, just badly formed input from the user. 
+// user input error: it's not a bug, just badly formed input from the user.
 function note_user_error($message){
   global $admin_email, $site_name, $act, $email, $header_printed;
-  
+
   if(!$header_printed) {
     include 'pages/common_parts/header.php';
   }
@@ -122,19 +122,19 @@ function die_at_user_error($message){
 // email admin with bug message
 function noted_problem($message){
   global $admin_email, $site_name, $act, $email, $header_printed;
-  
+
   if(!$header_printed) {
     include 'pages/common_parts/header.php';
   }
 
-  $full_msg = 
-  "Bug reported by user_id: " . $_SESSION['id'] . 
-  "\n SERVER: " .print_r($_SERVER, true) . 
-  "\n SESSION: " . print_r($_SESSION,true) 
+  $full_msg =
+  "Bug reported by user_id: " . $_SESSION['id'] .
+  "\n SERVER: " .print_r($_SERVER, true) .
+  "\n SESSION: " . print_r($_SESSION,true)
   . "\n -- \n" . $message . "\n -- \n"
   . "\n\nbacktrace: \n"
   . print_r(debug_backtrace(),true)
-  /* . "\n\nGlobals: \n" 
+  /* . "\n\nGlobals: \n"
   . print_r($globals, true) */
   . "\n ---- \n";
 
@@ -142,7 +142,7 @@ function noted_problem($message){
     str_replace('\n','<br>',$full_msg);
     ?><div class="bug"><code><? print $full_msg; ?></code></div><?
   } else {
-    send_email($admin_email, $site_name . ': Bug', $full_msg);
+    // send_email($admin_email, $site_name . ': Bug', $full_msg);
   }
 
   ?>
@@ -189,11 +189,11 @@ function send_log_email($m) {
   global $admin_email;
  // $log_email = str_replace("@", "+log@", $admin_email);
   $lfcr = "\r\n";
-  mail($admin_email, "TheoryMine: Log (". date("H:i:s, j M Y") . ")", 
-    "<html><pre>" . $m . "</pre></html>", 
+  mail($admin_email, "TheoryMine: Log (". date("H:i:s, j M Y") . ")",
+    "<html><pre>" . $m . "</pre></html>",
     'MIME-Version: 1.0' . $lfcr .
       'Content-type: text/html; charset=iso-8859-1' . $lfcr .
-      'From: TheoryMine <' . $admin_email . ">" . $lfcr . 
+      'From: TheoryMine <' . $admin_email . ">" . $lfcr .
       'Reply-To: ' . $admin_email . $lfcr .
       'Content-Type: text/html;' . $lfcr .
       'X-Mailer: PHP/' . phpversion()
@@ -204,7 +204,7 @@ function note_in_log($m) {
   ob_start();
   debug_print_backtrace();
   $trace = ob_get_contents();
-  ob_end_clean(); 
+  ob_end_clean();
 
   if(in_debug_mode()){
     str_replace('\n','<br>',$m);
@@ -213,7 +213,7 @@ function note_in_log($m) {
     <?
   } elseif(file_exists("prefs/log.txt")) {
     $f = fopen("prefs/log.txt", "a");
-    if($f != null) { 
+    if($f != null) {
       $m .= "\n<br>Trace:" . $trace;
       fwrite($f, "\n[Date: " . date("H:i:s, j M Y") . "]" . $m);
       fclose($f);
@@ -232,8 +232,8 @@ function log_as_point($subj,$msg,$logkind = '') {
   $point_h_id = db_new_point($db_points_h, array ('history_id' => 0, 'title' => sql_str_escape($subj), 'body' => sql_str_escape($msg), 'point_type' => 'log.' . sql_str_escape($logkind), 'action_id' => 0));
 
   //send_email(
-  //  "ldixon@inf.ed.ac.uk", 
-  //  $subj, 
+  //  "ldixon@inf.ed.ac.uk",
+  //  $subj,
   //  "<pre>" . $msg . "</pre>");
 }
 
@@ -243,7 +243,7 @@ function send_email($to_email,$subject,$message) {
   $lfcr = "\r\n";
   $header = 'MIME-Version: 1.0' . $lfcr .
     'Content-type: text/html; charset=iso-8859-1' . $lfcr .
-    'From: TheoryMine <' . $admin_email . ">" . $lfcr . 
+    'From: TheoryMine <' . $admin_email . ">" . $lfcr .
     'Reply-To: ' . $admin_email . $lfcr .
     'Content-Type: text/html;' . $lfcr .
     'X-Mailer: PHP/' . phpversion();
@@ -252,7 +252,7 @@ function send_email($to_email,$subject,$message) {
 }
 
 function sqlfile_of_phpfile($filename) {
-  global $db_tables_prefix, 
+  global $db_tables_prefix,
   $q; // query object can be created
   ob_start();
   include($filename);
@@ -263,7 +263,7 @@ function sqlfile_of_phpfile($filename) {
 
 
 // removes all session data
-function force_logout() { 
+function force_logout() {
   foreach(array_keys($_SESSION) as $k) {
     if($k != 'secure') { unset($_SESSION[$k]); }
   }
@@ -287,12 +287,12 @@ function redirect($url){
 }
 
 
-/** 
+/**
  * for passwords, unique values, etc
- */ 
+ */
 function genRandomString($length = 8, $characters = '0123456789abcdefghjkmnpqrstuvwxyzABCDEFGHJKMNPQRSTUVWXYZ') {
     $n = strlen($characters);
-    $string ='';    
+    $string ='';
     for ($p = 0; $p < $length; $p++) {
         $string .= $characters[mt_rand(0, $n)];
     }
