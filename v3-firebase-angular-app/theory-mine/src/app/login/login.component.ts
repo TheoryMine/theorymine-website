@@ -14,7 +14,11 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider())
-    .then(res => console.log(res))
+    .then(res => console.log(res));
+  }
+
+  logout() {
+    this.afAuth.auth.signOut();
   }
 
   ngOnInit() {

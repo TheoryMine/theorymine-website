@@ -14,11 +14,11 @@ const redirectLoggedInToItems = redirectLoggedInTo(['user']);
 const belongsToAccount = (next) => hasCustomClaim(`account-${next.params.id}`);
 
 const routes: Routes = [
-  { path: '',             component: LoginComponent, 
+  { path: '',             component: LoginComponent,
     pathMatch: 'full',  ...canActivate(redirectLoggedInToItems) },
-  { path: 'login',        component: LoginComponent,    
+  { path: 'login',        component: LoginComponent,
     ...canActivate(redirectLoggedInToItems) },
-  { path: 'user',         component: UserComponent,     
+  { path: 'user',         component: UserComponent,
     ...canActivate(redirectUnauthorizedToLogin) },
   // { path: 'admin',        component: AdminComponent,    ...canActivate(adminOnly) },
 ];
