@@ -35,7 +35,8 @@ if(!isset($_SESSION['id'])) {
 
  <div class="preview" style = "text-align:center;   margin-left:auto; margin-right: auto; width: 35%;">
   <p>
-    TheoryMine is no longer trading. We wish you all many happy mathematical discoveries, and hope you enjoyed the robot-found theorems we discusevered that you named.
+    TheoryMine is no longer trading. We wish you all many happy mathematical discoveries, and hope you enjoyed the robot-found theorems we discovered that you named. <br/>
+    The money that we raised with TheoryMine was used to found some research projects, and the remaining will be donated to a charity. Thank you to all that helped us!
   </p>
 </div>
 
